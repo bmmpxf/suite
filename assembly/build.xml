@@ -15,6 +15,11 @@
     <delete dir="gdal-win"/>
     <unzip src="gdal-win.zip" dest="gdal-win" overwrite="false"/>
 
+    <get src="${data}/gdalwin32-1.6.zip" dest="gdalogr-win.zip" usetimestamp="yes"/>
+    <delete dir="gdalogr-win"/>
+    <unzip src="gdalogr-win.zip" dest="gdalogr-win" overwrite="false"/>
+
+
     <!-- Windows PostgreSQL / PostGIS -->
     <!-- http://downloads.enterprisedb.com/postgresql/postgresql-8.4.3-1-windows-binaries.zip -->
     <!-- Windows assembly combines PostGIS binaries with PgSQL binaries at assembly time -->
