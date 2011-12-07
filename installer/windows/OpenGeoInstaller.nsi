@@ -511,7 +511,6 @@ Section "-Upgrade" SectionUpgrade ; dash = hidden
   RMDir /r "$OldInstallDir\data_dir"
   RMDir /r "$OldInstallDir\etc"
   RMDir /r "$OldInstallDir\gdal"
-  RMDir /r "$OldInstallDir\gdalogr"
   RMDir /r "$OldInstallDir\icons"
   RMDir /r "$OldInstallDir\jre"
   RMDir /r "$OldInstallDir\lib"
@@ -714,9 +713,9 @@ SectionGroup "Extensions" SectionGSExt
     File /a "${SOURCEPATHROOT}\gdal\*.*"
 
     ; This GDAL bundle allows for running gdal and ogr tools
-    CreateDirectory "$INSTDIR\gdal"    
+    CreateDirectory "$INSTDIR\gdal"
     SetOutPath "$INSTDIR\gdal"
-    File /a "${SOURCEPATHROOT}\gdalogr\*.*"
+    File /r "${SOURCEPATHROOT}\gdalogr\"
 
   SectionEnd
 
@@ -1014,7 +1013,6 @@ Section Uninstall
     RMDir /r "$INSTDIR\data_dir"
     RMDir /r "$INSTDIR\etc"
     RMDir /r "$INSTDIR\gdal"
-    RMDir /r "$INSTDIR\gdalogr"
     RMDir /r "$INSTDIR\icons"
     RMDir /r "$INSTDIR\jre"
     RMDir /r "$INSTDIR\lib"
