@@ -11,4 +11,5 @@ This section will discuss using YSLD in OpenGeo Suite
    :maxdepth: 2
 
    why
+   composer
    reference/index

@@ -67,13 +67,13 @@ The ``property`` is a string denoting the property name, while the ``value`` can
      - ``0.75``
      - Quotes allowed as well
    * - Text
-     - Quotes (single or double)
+     - Quotes
      - ``'Title'``
      - Spaces, colons, and other special characters are allowed (WHICH AREN'T?) (AND IS THIS TRUE THAT QUOTES ARE REQUIRED?)
-   * - Hex value
-     - Quotes (single or double)
-     - ``'#808080'`` or ``"#808080"``
-     - Used when specifying RGB colors (#RRGGBB)
+   * - Color
+     - Quotes (hex) / rgb(r,g,b) (Decimal)
+     - ``'#808080'`` or ``"#808080"``, ``rgb(255,0,255)``. ``#`` MAY BE OPTIONAL
+     - Used when specifying RGB colors. For hex: ``#rrggbb``; for decimal: ``rgb(rrr,ggg,bbb)``
    * - Tuple
      - Parentheses
      - ``(0,15000)``
@@ -86,11 +86,6 @@ The ``property`` is a string denoting the property name, while the ``value`` can
      - ???
      - ???
      -
-
-List syntax
------------
-
-TBD.
 
 Indentation
 -----------
@@ -119,8 +114,32 @@ Compare to the following **incorrect** markup::
 
 Note that the dash (``-``) indicates that a list is beginning, but that is irrelevant to the specifics of the polygon block. (If the polygon block was preceded by another symbolizer, it would not have a dash in front of it.) The parameters that are relevant to the polygon block here need to be contained inside that block. Without the parameters being indented, they are at the same "level" as the polygon block, and so will not be interpreted correctly.
 
-TALK MORE ABOUT LISTS AND DASHES
+List syntax
+-----------
 
+.. warning:: TBD. TALK ABOUT DASHES.
+
+Comments
+--------
+
+Comments are allowed in YSLD, both for descriptive reasons and to remove certain styling directives without deleting them outright. Comments are indicated by a ``#`` as the first non-whitespace character in a line. For example::
+
+  # This is a line symbolizer
+  - line:
+      stroke-color: #000000
+      stroke-width: 2
+      #stroke-width: 3
+
+The above would display the lines with width of ``2`` as the line showing a width of ``3``` is commented out.
+
+Comment blocks do not exist, so you will need to comment each individual line::
+
+  - line:
+      stroke-color: #000000
+      stroke-width: 2
+  #- line:
+  #    stroke-color: #ff0000
+  #    stroke-width: 3
 
 Scratch pad
 -----------
