@@ -47,6 +47,7 @@ The following is the basic syntax of a Rule. Note that the contents of the block
 where:
 
 .. list-table::
+   :class: non-responsive
    :header-rows: 1
    :stub-columns: 1
 

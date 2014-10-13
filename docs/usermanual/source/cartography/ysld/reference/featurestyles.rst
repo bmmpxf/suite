@@ -33,7 +33,6 @@ Syntax
 
 The following is the basic syntax of a Feature Style. Note that the contents of the block are not all expanded; see the other sections for the relevant syntax.
 
-
 ::
 
    feature-styles:
@@ -51,6 +50,7 @@ The following is the basic syntax of a Feature Style. Note that the contents of 
 where:
 
 .. list-table::
+   :class: non-responsive
    :header-rows: 1
    :stub-columns: 1
 
