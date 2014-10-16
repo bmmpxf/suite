@@ -13,14 +13,11 @@ Functions aren't a parameter to itself, but instead are used as a part of the va
   <parameter>: <function>
 
 
-
 Functions are evaluated at rendering time, so the output is passed as the parameter value and then rendered accordingly.
-
-.. note:: A function
 
 .. warning:: VERIFY
 
 List of functions
 -----------------
 
-.. warning:: WHERE IS THE FULL LSIT OF FUNCTIONS? SPECIFY ONLY SOME?
+.. warning:: FULL LIST OF FUNCTIONS? WHICH ONES TO SPECIFY?

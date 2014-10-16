@@ -7,14 +7,11 @@ Filters are predicates that allow rules to be applied selectively.
 
 A filter can take a great many different forms.
 
-.. note:: A scale is a type of filter, but is :ref:`discussed in its own section <cartography.ysld.reference.scale>`.
-
+.. note:: A scale is a type of filter, but is :ref:`discussed separately <cartography.ysld.reference.scale>`.
 
 .. note:: For more information, please see the `GeoTools CQL documentation <http://docs.geotools.org/stable/userguide/library/cql/ecql.html>`_ and `GeoServer CQL tutorial <../../../geoserver/tutorials/cql/cql_tutorial.html>`_.
 
 .. warning:: TEST INTERNAL LINK
-
-
 
 .. warning:: WHAT ABOUT ELSE?
 
@@ -25,12 +22,12 @@ The basic syntax of a filter is::
 
   rules:
     ...
-  filter: <filter>
+    filter: <expression>
     ...
 
-where ``<filter>`` is any valid CQL/ECQL filter.
+where ``<expression>`` is any valid CQL/ECQL filter.
 
-.. note:: Be aware that filters are applied to :ref:`rules <cartography.ysld.reference.rules>` and so appear inside them, but outside of the :ref:`symbolizer <cartography.ysld.reference.symbolizers>`.
+.. note:: Be aware that filters are applied to :ref:`rules <cartography.ysld.reference.rules>` and so appear inside them, but outside of any :ref:`symbolizers <cartography.ysld.reference.symbolizers>`.
 
 Types of filters
 ----------------

@@ -20,7 +20,4 @@ Editing styles
 UI workflow stuff here.
 
 
-
-
-
 .. warning:: How do you do auto-complete?

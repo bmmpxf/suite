@@ -7,16 +7,16 @@ It is common for different style :ref:`rules <cartography.ysld.reference.scale>`
 
 For example, on a roads layer, you would not not want to display every single road when viewing the whole world. Or perhaps, you may wish to styles the same features differently depending on the zoom level; for example: a cities layer styled using points at low zoom levels (when "zoomed out") and with city borders at higher zoom levels ("zoomed in").
 
-YSLD includes a directive that allows rules to be applied depending on the zoom level (scale).
+YSLD includes a directive that allows rules to be applied depending on the scale.
 
 Syntax
 ------
 
-The syntax for using a scale in a rule is::
+The syntax for using a scale conditional parameter in a rule is::
 
   rule:
     ...
-    scale: (min,max)
+    scale: (<min>,<max>)
     ...
 
 where:
@@ -33,11 +33,11 @@ where:
      - Default value
    * - ``min``
      - No
-     - The minimum scale for which the rule will be applied. Value is a number (integer or decimal).
+     - The minimum scale for which the rule will be applied. Value is a number.
      - ``0``
    * - ``max``
      - No
-     - The minimum scale for which the rule will be applied. Value is a number (integer or decimal).
+     - The minimum scale for which the rule will be applied. Value is a number.
      - ``infinite``
 
 .. warning:: IS IT POSSIBLE TO USE AN EXPRESSION FOR THE SCALE?

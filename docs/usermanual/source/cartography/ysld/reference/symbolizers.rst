@@ -3,7 +3,7 @@
 Symbolizers
 ===========
 
-The basic unit of visualization is the Symbolizer. There are five types of symbolizer:
+The basic unit of visualization is the symbolizer. There are five types of symbolizer:
 
 * Point Symbolizer
 * Line Symbolizer
@@ -11,9 +11,9 @@ The basic unit of visualization is the Symbolizer. There are five types of symbo
 * Raster Symbolizer
 * Text Symbolizer
 
-Symbolizers are contained inside :ref:`Rules <cartography.ysld.reference.rules>`. A Rule can contain one or many symbolizers. 
+Symbolizers are contained inside :ref:`rules <cartography.ysld.reference.rules>`. A rule can contain one or many symbolizers. 
 
-.. note:: The most common use case for multiple symbolizers is a geometry (Point/Line/Polygon) Symbolizer to draw the features plus a Text Symbolizer for labeling these features.
+.. note:: The most common use case for multiple symbolizers is a geometry (point/line/polygon) symbolizer to draw the features, plus a text symbolizer for labeling these features.
 
 .. warning:: ADD FIGURE
 
@@ -43,6 +43,9 @@ It is common to match the symbolizer with the type of geometries contained in th
      - ?
      - **Polygons**
 
+.. warning:: FILL THIS OUT
+
+.. _cartography.ysld.reference.symbolizers.point:
 
 Point Symbolizer
 ----------------
@@ -148,6 +151,8 @@ where:
 .. include:: include/graphic.txt
 
 
+.. _cartography.ysld.reference.symbolizers.line:
+
 Line Symbolizer
 ---------------
 
@@ -214,6 +219,9 @@ where:
 
 .. include:: include/graphic.txt
 
+
+.. _cartography.ysld.reference.symbolizers.polygon:
+
 Polygon Symbolizer
 ------------------
 
@@ -275,6 +283,9 @@ where:
 
 .. include:: include/graphic.txt
 
+
+.. _cartography.ysld.reference.symbolizers.raster:
+
 Raster Symbolizer
 -----------------
 
@@ -331,6 +342,9 @@ where:
      - ???
      - ???
 
+
+.. _cartography.ysld.reference.symbolizers.text:
+
 Text Symbolizer
 ---------------
 
@@ -359,8 +373,6 @@ The full syntax of a text symbolizer is::
       <<: *fill
       <<: *symbolizer
       <<: *graphic
-
-.. warning:: WHAT ABOUT THE VENDOR OPTIONS?
 
 where:
 
@@ -422,3 +434,5 @@ where:
      - No
      - ???
      - ???
+
+.. warning:: ADD VENDOR OPTIONS

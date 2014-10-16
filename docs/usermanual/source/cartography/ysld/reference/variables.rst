@@ -12,7 +12,7 @@ The two most-common use cases for using variables are:
 
 .. warning:: ANYTHING ELSE?
 
-It is customary, but not required, to place all definitions at the very top of the YSLD file, above all :ref:`header information <cartography.ysld.reference.structure>`:ref:`feature styles <cartography.ysld.reference.featurestyles>`, or :ref:`rules <cartography.ysld.reference.rules>`.
+It is customary, but not required, to place all definitions at the very top of the YSLD file, above all :ref:`header information <cartography.ysld.reference.structure>`, :ref:`feature styles <cartography.ysld.reference.featurestyles>`, or :ref:`rules <cartography.ysld.reference.rules>`.
 
 Syntax
 ------
@@ -42,7 +42,7 @@ where:
      - N/A
    * - ``&variable``
      - Yes
-     - The name of the variable being defined. The ``&``, while required, is not part of the variable name.
+     - The name of the variable being defined. The ``&`` is not part of the variable name.
      - N/A
    * - ``<value>``
      - Yes
@@ -63,7 +63,6 @@ The syntax for defining a variable as a content block is::
   define: &varblock
     <directive>: <value>
     <directive>: <value>
-    <directive>: <value>
     ...
     <block>:
     - <directive>: <value>
@@ -74,7 +73,7 @@ Any number of directives or blocks of directives can be inside the definition bl
 
 .. warning:: NESTED BLOCKS POSSIBLE?
 
-The syntax for using this variable, once again, is to prepend the variable name with a ``>>: *``::
+The syntax for using this variable is to prepend the variable name with a ``>>: *``::
 
   <block>:
   - <directive>: <value>  

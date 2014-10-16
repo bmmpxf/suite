@@ -14,7 +14,7 @@ There are many reasons to use the YSLD styling markup language over the SLD mark
 Easier to read
 --------------
 
-Compare the following style directives, both of which specify the fill color of a feature collection to be red.
+Compare the following style directives, both of which specify the fill color of a feature to be red.
 
 SLD:
 
@@ -190,11 +190,11 @@ In YSLD, all the directives that occur multiple times can be replaced with a var
 
 .. warning:: VERIFY SYNTAX
 
-Note the variable substitution in the lines ``>>: *variable``.
+Note the definition of ``variable`` at the top, and the variable substitution in the line ``>>: *variable``.
 
 Compatible with SLD
 -------------------
 
-In addition to all of thee advantage, YSLD maintains 100% compatibility with existing SLD. Through the GeoServer interface, you can freely convert between the YSLD and SLD, with no loss of content.
+In addition to all of these advantage, YSLD maintains compatibility with existing SLD.
 
-.. warning:: HOW TO CONVERT BETWEEN THE TWO?
+.. warning:: TALK ABOUT CONVERSION.

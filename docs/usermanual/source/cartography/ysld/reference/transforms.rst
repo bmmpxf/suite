@@ -3,14 +3,13 @@
 Transforms
 ==========
 
-YSLD allows for the use of :ref:`rendering transformations <cartography.rt>`. Rendering transformations are processes on the server that are executed inside the rendering pipeline, to allow for dynamic data transformations. In OpenGeo Suite, rendering transformations are typically exposed as WPS processes LINK?.
+YSLD allows for the use of :ref:`rendering transformations <cartography.rt>`. Rendering transformations are processes on the server that are executed inside the rendering pipeline, to allow for dynamic data transformations. In OpenGeo Suite, rendering transformations are typically exposed as WPS processes.
 
 For example, one could create a style that applies to a point layer, and applies a Heatmap process as a rendering transformation, making the output a (raster) heatmap.
 
 Because rendering transformations can change the geometry type, it is important to make sure that the :ref:`symbolizer <cartography.ysld.reference.symbolizers>` used matches the *output* of the rendering transformation, not the input. In the above heatmap example, the appropriate symbolizer would be a raster symbolizer, as the output of a heatmap is a raster.
 
-For more information, please see the section on :ref:`rendering transformations <cartography.rt>` or WPS LINK 
-
+For more information, please see the sections on :ref:`cartography.rt` and :ref:`processing`.
 
 Syntax
 ------
