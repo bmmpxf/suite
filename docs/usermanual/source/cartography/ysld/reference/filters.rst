@@ -92,7 +92,7 @@ The following is a desription of all available operators:
    * - ``>=``
      - Greater than or equal to (inclusive)
    * - ``LIKE``
-     - Fuzzy matching. Add SOME CHARACTER to permit wildcards (DETAILS)
+     - Fuzzy matching. Add SOME CHARACTER to permit wildcards (DETAILS) %
    * - ``ILIKE``
      - Case-insensitive version of ``LIKE``
    * - ``BETWEEN``
@@ -140,7 +140,7 @@ Larger filters can be built up in this way::
 In these examples, every ``<statement>`` is a valid filter.
 
 
-.. warning:: WHICH TAKES PRECEDENCE, AND OR OR?
+.. warning:: WHICH TAKES PRECEDENCE, AND OR OR?   HAPPENS LEFT TO RIGHT
 
 
 

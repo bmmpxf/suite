@@ -3,13 +3,15 @@
 Symbolizers
 ===========
 
+.. warning:: SPLIT INTO MULTIPLE PAGES
+
 The basic unit of visualization is the symbolizer. There are five types of symbolizer:
 
-* Point Symbolizer
-* Line Symbolizer
-* Polygon Symbolizer
-* Raster Symbolizer
-* Text Symbolizer
+* Point
+* Line
+* Polygon
+* Raster
+* Text
 
 Symbolizers are contained inside :ref:`rules <cartography.ysld.reference.rules>`. A rule can contain one or many symbolizers. 
 
@@ -35,15 +37,15 @@ It is common to match the symbolizer with the type of geometries contained in th
      - Centroid of the lines
      - Centroid of the polygons
    * - Line Symbolizer
-     - ?
+     - No display
      - **Lines**
      - Outline (stroke) of the polygons
    * - Polygon Symbolizer
-     - ?
-     - ?
+     - No display
+     - No display
      - **Polygons**
 
-.. warning:: FILL THIS OUT
+.. warning:: VERIFY THIS
 
 .. _cartography.ysld.reference.symbolizers.point:
 
@@ -56,8 +58,6 @@ The full syntax of a point symbolizer is::
 
   symbolizers:
   - point:
-      graphic: 
-        <graphic_options>
       symbols:
       - external:
           url: <text>
@@ -73,7 +73,7 @@ The full syntax of a point symbolizer is::
           stroke-opacity: <expression>
           stroke-linejoin: <expression>
           stroke-linecap: <expression>
-          stroke-dasharray: <float[]>
+          stroke-dasharray: <float list>
           stroke-dashoffset: <expression>
           stroke-graphic-fill: 
             <graphic_options>
@@ -84,9 +84,10 @@ The full syntax of a point symbolizer is::
       displacement: <tuple>
       opacity: <expression>
       rotation: <expression>
-      options: <options>
-      gap: <expression>
-      initial-gap: <expression>
+      geometry: <expression>
+
+
+
 
 .. warning:: VERIFY THIS
 
@@ -108,44 +109,34 @@ where:
      - Default value
    * - ``shape``
      - No
-     - The shape of the mark. Options are ``square``, ``circle``, ``triangle``, ``cross``, ``x``, and ``star``. 
+     - Shape of the mark. Options are ``square``, ``circle``, ``triangle``, ``cross``, ``x``, and ``star``. 
      - ``square``
    * - ``size``
      - No
-     - The size of the mark in pixels. If the aspect ratio of the mark is not 1:1 (square), will apply to the *height* of the graphic only, with the width scaled proportionally.
+     - Size of the mark in pixels. If the aspect ratio of the mark is not 1:1 (square), will apply to the *height* of the graphic only, with the width scaled proportionally.
      - 16
    * - ``anchor``
      - No
-     - ???
-     - ???
+     - Specify the center of the symbol relative to the feature location. Value is an ``(x,y)`` tuple with decimal values from 0-1, with ``(0,0)`` meaning that the symbol is anchored to the top left, and ``(1,1)`` meaning anchored to bottom right. 
+     - ``(0.5,0.5)``
    * - ``displacement``
      - No
-     - DIDN'T WORK
-     - ???
+     - Specifies a distance to which to move the symbol relative to the feature. Value is an ``(x,y)`` tuple with values expressed in pixels, so (10,5) will displace the symbol 10 pixels to the right and 5 pixels down.
+     - ``(0,0)``
    * - ``opacity``
      - No
-     - DIDN'T WORK
-     - ???
+     - Specifies the level of transparency. Value of ``0`` means entirely transparent, while ``1`` means entirely opaque.
+     - ``1``
    * - ``rotation``
      - No
      - Value (in degrees) or rotation of the mark. Larger values increase counter-clockwise rotation. A value of ``180`` will make the mark upside-down.
      - ``0``
-   * - ``options``
+   * - ``geometry``
      - No
-     - ???
-     - ???
-   * - ``gap``
-     - No
-     - ???
-     - ???
-   * - ``initial-gap``
-     - No
-     - ???
-     - ???
-   * - ANYTHING ELSE?
-     - No
-     - ???
-     - ???
+     - Specifies which attribute to use as the geometry.
+     - First geometry attribute found
+
+.. warning:: VERIFY OTHER SHAPES, ANCHOR, DISPLACEMENT
 
 
 .. include:: include/graphic.txt
@@ -169,7 +160,7 @@ The full syntax of a line symbolizer is:
       stroke-opacity: <expression>
       stroke-linejoin: <expression>
       stroke-linecap: <expression>
-      stroke-dasharray: <float[]>
+      stroke-dasharray: <float list>
       stroke-dashoffset: <expression>
       stroke-graphic-fill: 
         <graphic_options>
@@ -177,14 +168,8 @@ The full syntax of a line symbolizer is:
         <graphic_options>
       offset: <expression>
       geometry: <expression>
-      options: <options>
 
-.. warning::
-
-   * What about UOM?
-   * What does "expression" mean? 
-   * What about offset/geometry/options
-   * What is stroke-graphic-?
+.. warning:: VERIFY STROKE-GRAPHIC-?, OFFSET
 
 where:
 
@@ -202,23 +187,14 @@ where:
      - Default value
    * - ``offset``
      - No
-     - ???
-     - ???
+     - Value in pixels for moving the drawn line relative to the location of the feature. 
+     - ``0``
    * - ``geometry``
      - No
-     - ???
-     - ???
-   * - ``options``
-     - No
-     - ???
-     - ???
-   * - ANYTHING ELSE?
-     - No
-     - ???
-     - ???
+     - Specifies which attribute to use as the geometry.
+     - First geometry attribute found
 
 .. include:: include/graphic.txt
-
 
 .. _cartography.ysld.reference.symbolizers.polygon:
 
@@ -240,17 +216,15 @@ The full syntax of a polygon symbolizer is::
       stroke-opacity: <expression>
       stroke-linejoin: <expression>
       stroke-linecap: <expression>
-      stroke-dasharray: <float[]>
+      stroke-dasharray: <float list>
       stroke-dashoffset: <expression>
       stroke-graphic-fill: 
         <graphic_options>
       stroke-graphic-stroke: 
         <graphic_options>
       offset: <expression>
+      displacement: <expression>
       geometry: <expression>
-      options: <options>
-
-.. warning:: VERIFY THAT THERE AREN'T OTHER OPTIONS
 
 where:
 
@@ -270,16 +244,16 @@ where:
      - Default value
    * - ``offset``
      - No
-     - ???
-     - ???
+     - Value in pixels for moving the drawn line relative to the location of the feature. 
+     - ``0``
    * - ``displacement``
      - No
-     - ???
-     - ???
-   * - ANYTHING ELSE?
+     - Specifies a distance to which to move the symbol relative to the feature. Value is an ``(x,y)`` tuple with values expressed in pixels, so (10,5) will displace the symbol 10 pixels to the right, and 5 pixels down.
+     - ``(0,0)``
+   * - ``geometry``
      - No
-     - ???
-     - ???
+     - Specifies which attribute to use as the geometry.
+     - First geometry attribute found
 
 .. include:: include/graphic.txt
 
@@ -295,11 +269,13 @@ The full syntax of a raster symbolizer is::
 
   symbolizers:
   - raster:
-      opacity: 1.0
+      opacity: <expression>
       color-map:
         type: ramp
         entries: []
-      contrast-enhancement: {}
+      contrast-enhancement: 
+        mode: <normalize|histogram|none>
+        gamma: <expression>
 
 .. warning:: WHAT ELSE?
 
@@ -324,24 +300,47 @@ where:
    * - ``color-map``
      - No
      - Creates a mapping of colors to grid values.
-     - ???
+     - N/A
    * - ``type``
      - No
-     - Type of color mapping. Default is ``ramp``, which creates a smooth gradient between values. OTHER OPTIONS? SYTNAX?
-     - ???
+     - Type of color mapping. Options are ``ramp``, an interpolated list of values; ``interval``, a non-interpolated list of values; and ``values``, where values need to match exactly to be drawn.
+     - ``ramp``
    * - ``entries``
      - No
-     - Values for the color mapping. SYTNAX?
-     - ???
+     - Values for the color mapping. Syntax is a list of tuples, where each tuple contains ``(color, opacity, band_value, text_label)``
+     - N/A
    * - ``contrast-enhancement``
      - No
+     - Applies a multiplier to the band values drawn
+     - N/A
+   * - ``mode``
+     - No
+     - Type of contrast enhancement. Options are ``normalize``, ``histogram``, and ``none``
      - ???
-     - ???
-   * - ANYTHING ELSE?
+   * - ``gamma``
      - No
      - ???
      - ???
 
+.. warning:: VERIFY (PLANBOX) CONTRAST-ENHANCEMENT
+
+.. warning:: HOW TO SELECT BANDS?
+
+Examples
+~~~~~~~~
+
+Color ramp from red to green to blue, with raster band values from 0-200::
+
+  symbolizers:
+  - raster:
+      color-map:
+        type: ramp
+        entries:
+        - (ff0000, 1, 0, red)
+        - (00ff00, 1, 100, green)
+        - (0000ff, 1, 200, blue)
+
+.. warning:: VERIFY THIS
 
 .. _cartography.ysld.reference.symbolizers.text:
 
@@ -360,19 +359,42 @@ The full syntax of a text symbolizer is::
       font-style: <expression>
       font-weight: <expression>
       placement:
-        type: point|line
+        type: <point|line>
         offset: <expression>
         anchor: <tuple>
         displacement: <tuple>
         rotation: <expression>
+      x-allowOverruns: <boolean>
+      x-autoWrap: <expression>
+      x-conflictResolution: <boolean>
+      x-followLine: <boolean>
+      x-forceLeftToRight: <boolean>
+      x-goodnessOfFit: <expression>
+      x-graphic-margin: <expression>
+      x-graphic-resize: <expression>
+      x-group: <boolean>
+      x-labelAllGroup: <boolean>
+      x-repeat: <expression>
+      x-maxAngleDelta: <expression>
+      x-maxDisplacement: <expression>
+      x-minGroupDistance: <expression>
+      x-partials: <boolean>
+      x-polygonAlign: <boolean>
+      x-spaceAround: <expression>
+
+      
+
+
+
 
 .. warning::
 
-   UNSURE ABOUT THESE::
+   NEEED TO ADD THESE AND FIGURE OUT WHAT THEY DO::
 
       <<: *fill
-      <<: *symbolizer
       <<: *graphic
+
+ 
 
 where:
 
@@ -416,23 +438,104 @@ where:
      - ???
    * - ``offset``
      - No
-     - ???
-     - ???
+     - Value in pixels for moving the drawn line relative to the location of the feature. 
+     - ``0``
    * - ``anchor``
      - No
      - ???
      - ???
    * - ``displacement``
      - No
-     - ???
-     - ???
+     - Specifies a distance to which to move the label relative to the feature. Value is an ``(x,y)`` tuple with values expressed in pixels, so (10,5) will displace the label 10 pixels to the right and 5 pixels down.
+     - ``(0,0)``
    * - ``rotation``
      - No
-     - ???
-     - ???
-   * - ANYTHING ELSE?
+     - Value (in degrees) or rotation of the label. Larger values increase counter-clockwise rotation. A value of ``180`` will make the label upside-down.
+     - ``0``
+
+.. warning:: ADD HALO
+
+The following properties are equivalent to SLD "vendor options".
+
+.. note:: ADD LINK TO GS 
+
+.. list-table::
+   :class: non-responsive
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 20 10 50 20
+
+   * - Property
+     - Required?
+     - Description
+     - Default value
+   * - ``x-allowOverruns``
      - No
+     - Allows labels on lines to move slightly beyond the beginning/end of the line.
+     - ``true``
+   * - ``x-autoWrap``
+     - No
+     - The number of pixels beyond which a label will be wrapped over multple lines. Cannot use with ``x-followLine``.
+     - ``0``
+   * - ``x-conflictResolution``
+     - No 
+     - Enables conflict resolution, meaning no two labels will be allowed to overlap. Without conflict resolution, symoblizers can overlap with other labels.
+     - ``true``
+   * - ``x-followLine``
+     - No
+     - On linear geometries, the label will follow the shape of the current line, as opposed to being drawn at a tangent
+     - ``false``
+   * - ``x-forceLeftToRight``
+     - No
+     - Forces labels to a readable orientation, otherwise will follow the line orientation, possibly making the label look upside-down. This setting is useful when using symbol fonts to add direction markers along a line.
+     - ``false``
+   * - ``x-goodnessOfFit``
+     - No
+     - Percentage of the label that must fit inside the geometry to permit the label to be drawn. Works only on polygon features.
      - ???
+   * - ``x-graphic-margin``
+     - No
+     - Number of pixels between the stretched graphic and the text. Only applies when ``x-graphic-resize`` is set to ``stretch``.
+     - ???
+   * - ``x-graphic-resize``
+     - No
+     - Allows for stretching the graphic underneath a label to fit the label size. Options are ``stretch`` or ``proportional``. Used in conjunction with ``x-graphic-margin``..
+     - ???
+   * - ``x-group``
+     - No
+     - Geoemtries with identical labels will be considered a single entity to be labeled. Used to control repeated labels.
+     - ``false``
+   * - ``x-labelAllGroup``
+     - No
+     - Used in conjunction with ``x-group``. When ``true`` all items in a group are labeled. When ``false``, only the largest geometry in the group is labeled. Valid for lines only.
+     - ???
+   * - ``x-repeat``
+     - No
+     - Desired distance (in pixels) between labels drawn on a group. If zero, only one label will be drawn. Used in conjunction with ``x-group``. Valid for lines only.
+     - ???
+   * - ``maxAngleDelta``
+     - No
+     - Maximum allowed angle (in degrees) between two characters in a label. Used in conjunction with ``x-followLine``. Values higher than ``45`` may cause loss of legibility.
+     - ???
+   * - ``x-maxDisplacement``
+     - No
+     - Distance (in pixels) a label can be displaced from its natural position in an attempt to eliminate conflict with other labels.
+     - ???
+   * - ``x-minGroupDistance``
+     - No
+     - Minimum distance between two labels in the same label group. Used in conjunction with ``displacement`` or ``repeat`` to avoid having two labels too close to each other
+     - ???
+   * - ``x-partials``
+     - No
+     - Will display partial labels (truncated on the border of the display area).
+     - ``false``
+   * - ``x-polygonAlign``
+     - No
+     - Overrides manual rotation to align label rotation automatically. Valid for polygons only.
+     - ``false``
+   * - ``x-spaceAround``
+     - No
+     - Minimum distance (in pixels) between two labels.
      - ???
 
-.. warning:: ADD VENDOR OPTIONS
+.. warning:: VERIFY THESE

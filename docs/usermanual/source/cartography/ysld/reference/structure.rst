@@ -6,8 +6,8 @@ Structure
 The structure of a typical YSLD file is as follows:
 
 * Variable definitions (if any)
-* Header
-* Feature Style(s)
+* Header (name, title, etc.)
+* Feature style(s)
 
 Regarding Feature Styles and their content:
 
@@ -33,10 +33,10 @@ Here is an example if a YSLD containing a single rule inside a single feature st
        title: 'Every feature will be styled this way'
        symbolizers:
        - polygon:
-         fill-color: '#808080'
-         fill-opacity: 0.5
-         stroke-color: '#000000'
-         stroke-opacity: 0.75
+           fill-color: '#808080'
+           fill-opacity: 0.5
+           stroke-color: '#000000'
+           stroke-opacity: 0.75
 
 This would style every polygon feature in a given layer with the given RGB color codes (a medium gray for a fill and black for the outline), with the given opacities for both fill and stroke being given in decimals indicating percentage (so 0.5 is 50% opaque).
 
@@ -45,7 +45,7 @@ This would style every polygon feature in a given layer with the given RGB color
 Property syntax
 ---------------
 
-Statements (or directives) in a YSLD styling document are designed as key-value, or property-value pairs of the following form::
+Individual statements (or directives) in a YSLD styling document are designed as key-value, or property-value pairs of the following form::
 
    <property>: <value>
 
@@ -74,9 +74,9 @@ The ``<property>`` is a string denoting the property name, while the ``<value>``
      - ``'Title'``
      - Spaces, colons, and other special characters are allowed
    * - Color
-     - Quotes (hex) / rgb(r,g,b) (Decimal)
-     - ``'#808080'`` or ``"#808080"``; ``rgb(255,0,255)``
-     - Used when specifying RGB colors. For hex: ``#rrggbb``; for decimal: ``rgb(rrr,ggg,bbb)``
+     - Six-digits (hex) / rgb(r,g,b) (Decimal)
+     - ``808080`` / ``rgb(255,0,255)``
+     - Used when specifying RGB colors. For hex: ``rrggbb`` or ``'#rrggbb'`` is allowed. For decimal: ``rgb(rrr,ggg,bbb)`` with each having values from 0 to 255.
    * - Tuple
      - Parentheses
      - ``(0,15000)``
@@ -86,53 +86,103 @@ The ``<property>`` is a string denoting the property name, while the ``<value>``
      - ``[type] = 'road'``
      - Single or double quotes allowed
 
-.. warning:: ANYTHING ELSE?
+.. note::
 
-.. warning:: WHAT SPECIAL CHARACTERS ARE ALLOWED IN A STRING?
+   Regarding the use of quotation marks:
 
-.. warning:: WHEN ARE QUOTES REQUIRED?
+   Quotes are only required when the first character of the value is ambiguous. For example, when the first character of the value is a ``#``, quotes are required, as it could signify an RGB color value or be a string.
 
-.. warning:: IS # REQUIRED?
+   When quotes are used, either single or double quotes are allowed.
 
+Expressions
+-----------
+
+Throughout the reference guide, there are references to values that are denoted by ``<expression>``. An **expression** is a flexible term meaning that the value can be one of the following kinds of objects:
+
+* Literal (scalar or string)
+* Attribute (usually denoted by ``[attribute]``)
+* :ref:`Function <cartography.ysld.reference.functions>`
+
+If using a function, it must evaluate to match the type expected by the property.
+
+Mappings and lists
+------------------
+
+.. note:: The following discussion is taken from basic YAML syntax. Please refer to the `YAML specification <http://yaml.org/spec/1.2/spec.html>`_ if necessary.
+
+There are three types of objects in a YSLD document:
+
+#. **Scalar**, a simple value
+#. **Mapping**, a collection of key-value (property-value) pairs
+#. **List**, any collection of objects. A list can contain mappings, scalars, and even other lists.
+
+**Lists require dashes for every entry, while mappings do not**.
+
+For example, a :ref:`symbolizer <cartography.ysld.reference.symbolizers>` block is a list, so every entry requires its own dash::
+
+  - symbolizer:
+    - polygon:
+        ...
+    - text:
+        ...
+
+The ``point:`` and ``text:`` objects (the individual symbolizers themselves) are mappings, and as such, the contents do not require dashes, only indents::
+
+  - polygon:
+      stroke-color: 808080
+      fill-color: ff0000
+
+The dash next to ``polygon`` means that the item itself is contained in a list, not that it contains a list. And **the placement of the dash is at the same level of indentation as the list title.**
+
+It is sometimes not obvious whether an object should be a list (and use dashes) or a mapping (and not use dashes), so please refer to this table if unsure:
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+
+   * - Object
+     - Type
+   * - :ref:`Feature style <cartography.ysld.reference.featurestyles>`
+     - List
+   * - :ref:`Rule <cartography.ysld.reference.rules>`
+     - List
+   * - :ref:`Symbolizer <cartography.ysld.reference.symbolizers>` block
+     - List
+   * - Individual symbolizers (contents)
+     - Mapping
+   * - :ref:`Transform <cartography.ysld.reference.transforms>`
+     - Mapping
+   * - Color table (for raster symbolizers)
+     - List
 
 Indentation
 -----------
 
 Indentation is very important in YSLD. All directives must be indented to its proper place to ensure proper hierarchy. **Improper indentation will cause a styled to be rendered incorrectly, or not at all.**
 
-For example, when using a polygon symbolizer, there are certain parameters that are contained inside it, such as the color of the fill and stroke. These must be indented such that they are "inside" the polygon block.
+For example, the polygon symbolizer, since it is a mapping, contains certain parameters inside it, such as the color of the fill and stroke. These must be indented such that they are "inside" the polygon block.
 
 In this example, the following markup is **correct**::
 
        - polygon:
-           fill-color: '#808080'
+           fill-color: 808080
            fill-opacity: 0.5
-           stroke-color: '#000000'
+           stroke-color: 000000
            stroke-opacity: 0.75
 
 The parameters inside the polygon (symbolizer) are indented, meaning that they are referencing the symbolizer and are not "outside it."
 
-.. warning:: WHY IS THERE NOT A SECOND DASH?
-
 Compare to the following **incorrect** markup::
 
        - polygon:
-         fill-color: '#808080'
+         fill-color: 808080
          fill-opacity: 0.5
-         stroke-color: '#000000'
+         stroke-color: 000000
          stroke-opacity: 0.75
 
 The parameters that are relevant to the polygon block here need to be contained inside that block. Without the parameters being indented, they are at the same "level" as the polygon block, and so will not be interpreted correctly.
 
-.. note:: Note that the dash (``-``) indicates that a list is beginning, but that is irrelevant to the specifics of the polygon block. If the polygon block were preceded by another symbolizer, it would not have a dash in front of it.
-
-.. note:: For more details on syntax, please see the section on :ref:`symbolizers <cartography.ysld.reference.symbolizers>`.
-
-
-List syntax
------------
-
-.. warning:: TBD. TALK ABOUT DASHES.
+.. note:: For more details on symbolizer syntax, please see the section on :ref:`symbolizers <cartography.ysld.reference.symbolizers>`.
 
 Comments
 --------
@@ -155,4 +205,10 @@ Comment blocks do not exist, so each line of a comment will need to be indicated
   #- line:
   #    stroke-color: #ff0000
   #    stroke-width: 3
+
+
+Single object syntax
+--------------------
+
+.. warning:: MENTION SINGLE-ELEMENT SHORT SYNTAX
 

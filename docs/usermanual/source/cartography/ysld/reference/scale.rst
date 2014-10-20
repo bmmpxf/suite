@@ -40,8 +40,7 @@ where:
      - The minimum scale for which the rule will be applied. Value is a number.
      - ``infinite``
 
-.. warning:: IS IT POSSIBLE TO USE AN EXPRESSION FOR THE SCALE?
-
+.. note:: It is not possible to use an expression for the scale min and max values. Values must be explicit numbers.
 
 Either the ``min`` and ``max`` values can omitted. For example::
 
@@ -56,17 +55,24 @@ will make the rule apply for any zoom level that includes scales higher than the
 If the scale parameter is omitted entirely, then the rule will apply at all zoom levels.
 
 
-Scale vs zoom
--------------
+Scale vs. zoom
+--------------
 
 Web maps often use zoom levels to talk about display, and yet also talk about scale. The relationship between zoom and scale is wholly dependent on the coordinate reference system used (and the relationship between each zoom level).
 
 For example, for EPSG:4326 with world boundaries, zoom level 0 (completely zoomed out) corresponds to a scale of 279,541,132, with each subsequent zoom level halving the scale value. For EPSG:3785 (Web Mercator), zoom level 0 corresponds to a scale of 559,082,264, again with each subsequent zoom level halving the scale value.
 
-.. warning:: HOW TO CALCULATE THIS?
-
 .. note:: Those scale values differ by a clean factor of 2, because EPSG:3785 fits the whole world into a half as much width as EPSG:4326.
 
-Also note that there is an inverse relationship between scale and zoom; as the zoom level increases, the scale decreases.
+It is difficult to calculate these values in advance. The best way to determine scale values for your layer based on zoom level is by viewing the OpenLayers Layer Preview for your layer. For each zoom level, you can retrieve the computed scale values, and then when making rules, ensure that that scale value is contained in the ``scale:`` value.
 
+For example, if a particular zoom level corresponds to a scale of 100,000 (and each subsequent zoom level is half that scale), then you can set the scale values of your rules to be:
+
+* ``scale: (75000,150000)`` (includes 100,000)
+* ``scale: (34000,75000)`` (includes 50,000)
+* ``scale: (16000,34000)`` (includes 25,000)
+* ``scale: (8000,16000)`` (includes 12,500)
+* etc.
+
+Also be aware that there is an inverse relationship between scale and zoom; **as the zoom level increases, the scale decreases.**
 

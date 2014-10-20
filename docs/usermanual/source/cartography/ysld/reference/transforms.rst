@@ -24,28 +24,6 @@ The full syntax for using a rendering transformation is::
     rules:
       ...
 
-.. warning::
-
-   WHEN DO DASHES HAPPEN?
-
-   Dash is here::
-
-      feature-styles:
-      - name: <text>
-        title: <text>
-        abstract: <text>
-
-   But not here::
-
-      transform:
-        name: <text>
-        params: <options>
-
-
-.. warning:: ARE PARAMS IN A LIST OR WHAT?
-
-.. warning:: DOES THE NAME HAVE A PREFIX?
-
 where:
 
 .. list-table::

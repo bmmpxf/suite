@@ -10,8 +10,6 @@ The two most-common use cases for using variables are:
 * To create a more-friendly name for a value (such as using ``orange`` instead of ``#ff8000``)
 * To define a block of directives to remove redundant content and to decrease file length
 
-.. warning:: ANYTHING ELSE?
-
 It is customary, but not required, to place all definitions at the very top of the YSLD file, above all :ref:`header information <cartography.ysld.reference.structure>`, :ref:`feature styles <cartography.ysld.reference.featurestyles>`, or :ref:`rules <cartography.ysld.reference.rules>`.
 
 Syntax
@@ -46,7 +44,7 @@ where:
      - N/A
    * - ``<value>``
      - Yes
-     - A single value, such as ``512`` or ``#dd0000``
+     - A single value, such as ``512`` or ``dd0000``
      - N/A
 
 The syntax for using this variable is to prepend the variable name with a ``*``::
@@ -69,9 +67,9 @@ The syntax for defining a variable as a content block is::
       <directive>: <value>
     ...
 
-Any number of directives or blocks of directives can be inside the definition block. Moreover, any type of directive that is valid YSLD can be included in the definition, so long as the content block could be substituted for the variable without modification.
+**Any number of directives or blocks of directives can be inside the definition block.** Moreover, any type of directive that is valid YSLD can be included in the definition, so long as the content block could be substituted for the variable without modification.
 
-.. warning:: NESTED BLOCKS POSSIBLE?
+.. note:: It is also possible to have nested definitions.
 
 The syntax for using this variable is to prepend the variable name with a ``>>: *``::
 
@@ -80,4 +78,39 @@ The syntax for using this variable is to prepend the variable name with a ``>>: 
     >>: *varblock
 
 The line that contains the variable will be replaced with the contents of the definition.
+
+Examples
+--------
+
+The following are all examples of variable substitution
+
+Name a color::
+
+  define: &orange ff8000
+
+::
+
+  stroke: *orange
+
+Reusable text string::
+
+  define: &ruleprefix "My rule #"
+
+::
+
+  title: *ruleprefix "1"
+
+.. warning:: CORRECT?
+
+Stroke style::
+
+  define: &strokestyle
+    stroke: ff0000
+    stroke-width: 2
+    stroke-opacity: 0.5
+
+::
+
+  polygon:
+    >>: *strokestyle
 

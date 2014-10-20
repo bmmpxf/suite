@@ -13,7 +13,7 @@ In YSLD, A Feature Style is a block of styling :ref:`Rules <cartography.ysld.ref
 
 A Feature Style is a **top-level element** in a YSLD style.
 
-Consider the following style:
+Consider the following style heirarchy:
 
 * Feature Style 1
 
@@ -42,9 +42,8 @@ The following is the basic syntax of a Feature Style. Note that the contents of 
      transform:
        ...
      rules:
-       ...
+     - ...
 
-.. warning:: ANYTHING ELSE?
 
 where:
 
@@ -72,5 +71,3 @@ where:
    * - ``rules``
      - Yes
      - List of styling :ref:`rules <cartography.ysld.reference.rules>`.
-
-.. warning:: LIMIT TO THE SIZE OF THESE FIELDS?

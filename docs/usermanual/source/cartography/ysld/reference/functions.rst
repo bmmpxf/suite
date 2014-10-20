@@ -21,3 +21,9 @@ List of functions
 -----------------
 
 .. warning:: FULL LIST OF FUNCTIONS? WHICH ONES TO SPECIFY?
+
+
+
+
+
+.. warning:: Function can be in lots of different places
