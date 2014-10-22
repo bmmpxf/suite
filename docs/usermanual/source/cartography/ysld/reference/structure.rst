@@ -3,13 +3,33 @@
 Structure
 =========
 
+Here is a simple example of a YSLD style containing a single rule inside a single feature style::
+
+   name: style_example
+   title: An example of YSLD styling
+   abstract: Used in the User Manual of OpenGeo Suite
+   feature-styles:
+   - rules:
+     - name: all
+       title: Every feature will be styled this way
+       symbolizers:
+       - polygon:
+           fill-color: 808080
+           fill-opacity: 0.5
+           stroke-color: 000000
+           stroke-opacity: 0.75
+
+This would style every polygon feature in a given layer with the given RGB color codes (a medium gray for a fill and black for the outline), with the given opacities for both fill and stroke being given in decimals indicating percentage (so 0.5 is 50% opaque).
+
+.. note:: For more details on syntax, please see the section on :ref:`symbolizers <cartography.ysld.reference.symbolizers>`.
+
 The structure of a typical YSLD file is as follows:
 
 * Variable definitions (if any)
 * Header (name, title, etc.)
 * Feature style(s)
 
-Regarding Feature Styles and their content:
+Regarding feature styles and their content:
 
 * A :ref:`feature style <cartography.ysld.reference.featurestyles>` is a block that can contain one or many rules.
 * A :ref:`rule <cartography.ysld.reference.rules>` is a directive that can contain one or many :ref:`symbolizers <cartography.ysld.reference.symbolizers>`.
@@ -19,28 +39,6 @@ Regarding Feature Styles and their content:
 
 .. warning:: FIGURE NEEDED
 
-Simple example
---------------
-
-Here is an example if a YSLD containing a single rule inside a single feature style::
-
-   name: 'style_example'
-   title: 'An example of YSLD styling'
-   abstract: 'Used in the User Manual of OpenGeo Suite'
-   feature-styles:
-   - rules:
-     - name: 'all'
-       title: 'Every feature will be styled this way'
-       symbolizers:
-       - polygon:
-           fill-color: '#808080'
-           fill-opacity: 0.5
-           stroke-color: '#000000'
-           stroke-opacity: 0.75
-
-This would style every polygon feature in a given layer with the given RGB color codes (a medium gray for a fill and black for the outline), with the given opacities for both fill and stroke being given in decimals indicating percentage (so 0.5 is 50% opaque).
-
-.. note:: For more details on syntax, please see the section on :ref:`symbolizers <cartography.ysld.reference.symbolizers>`.
 
 Property syntax
 ---------------
@@ -76,7 +74,7 @@ The ``<property>`` is a string denoting the property name, while the ``<value>``
    * - Color
      - Six-digits (hex) / rgb(r,g,b) (Decimal)
      - ``808080`` / ``rgb(255,0,255)``
-     - Used when specifying RGB colors. For hex: ``rrggbb`` or ``'#rrggbb'`` is allowed. For decimal: ``rgb(rrr,ggg,bbb)`` with each having values from 0 to 255.
+     - Used when specifying RGB colors. For hex: ``rrggbb`` or ``'#rrggbb'`` is allowed. For decimal: ``rgb(rrr,ggg,bbb)`` with each ordinate having a value from 0 to 255.
    * - Tuple
      - Parentheses
      - ``(0,15000)``

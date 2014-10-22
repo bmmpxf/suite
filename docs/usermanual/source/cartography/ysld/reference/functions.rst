@@ -24,6 +24,6 @@ List of functions
 
 
 
-
+.. warning:: INTERPOLATE, CATEGORIZE, RECODE
 
 .. warning:: Function can be in lots of different places

@@ -71,3 +71,10 @@ where:
    * - ``rules``
      - Yes
      - List of styling :ref:`rules <cartography.ysld.reference.rules>`.
+
+Examples
+--------
+
+.. warning:: SHOW EXAMPLES
+
+.. warning:: MULTI LINE EXAMPLE (WITH |)

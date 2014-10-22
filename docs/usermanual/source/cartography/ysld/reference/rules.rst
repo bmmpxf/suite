@@ -63,13 +63,15 @@ where:
    * - ``else``
      - No
      - Specifies whether the rule will be an "else" rule. An else rule applies when, due to filters, no other rule applies. Options are ``true`` or ``false`` and must be lowercase. Cannot be used with ``filter``.
-     - false
+     - ``false``
    * - ``scale``
      - No
      - :ref:`Scale <cartography.ysld.reference.scale>` boundaries showing at what scales (related to zoom levels) the rule will be applied.
+     - Visible at all scales
    * - ``symbolizers``
      - Yes
      - Block containing one or more :ref:`symbolizers <cartography.ysld.reference.symbolizers>`. These contain the actual visualization directives. If the filter returns true and the view is with the scale boundaries, these symbolizers will be applied.
+     - N/A
 
 .. warning:: NEED CLARIFICATION ON HOW SCALE WORKS WITH ELSE.
 

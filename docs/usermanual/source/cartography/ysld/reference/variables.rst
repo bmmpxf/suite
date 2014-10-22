@@ -71,7 +71,7 @@ The syntax for defining a variable as a content block is::
 
 .. note:: It is also possible to have nested definitions.
 
-The syntax for using this variable is to prepend the variable name with a ``>>: *``::
+The syntax for using this variable is to prepend the variable name with ``>>: *``. For example::
 
   <block>:
   - <directive>: <value>  
