@@ -1,246 +1,374 @@
-.. _Controls_and_tools:
+.. _controls:
 
 Controls and tools
-===================
+==================
 
 Here you can find a description of all the controls and tools that can be added to a web app and how to configure them.
 
-Attributes table
-**********************
+Scale bar
+---------
 
-The attributes table displays attributes associated to features of a given layer.  
+A scale bar to be placed on the bottom left of the map window. This control is enabled by default.
 
-.. image:: ../img/attributestable.png
-	:align: center
+.. figure:: ../img/scalebar.png
 
-Selected features for the layer are shown in a differente color.
+   Scale bar on the map
 
-Features can be selected/deselected clicking on the table rows.
+The following properties can be configured for this control:
 
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 20 80
+   :class: non-responsive
+
+   * - Option
+     - Description
+   * - minWidth
+     - Minimum width, in pixels, of the scale bar. Default is 64.
+   * - units
+     - The units to be used in the scale bar. Options are metric, degrees, imperial, nautical, and us. Default is metric.
+
+.. figure:: ../img/configurescalebar.png
+
+   Scale bar configuration
+
+
+Zoom Controls
+-------------
+
+Buttons to zoom the map in and out. This control is enabled by default.
+
+ADD FIGURE
+
+The following properties can be configured for this control:
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 20 80
+   :class: non-responsive
+
+   * - Option
+     - Description
+   * - delta
+     - NOT SURE. Default is 1.2.
+   * - duration
+     - NOT SURE. Default is 250.
+   * - zoomInLabel
+     - The text to display on the Zoom In button. Default is ``+``.
+   * - zoomInTipLabel
+     - The text to display when hovering over the Zoom In button. Default is ``Zoom in``.
+   * - zoomOutLabel
+     - The text to display on the Zoom Out button. Default is ``-``.
+   * - zoomOutTipLabel
+     - The text to display when hovering over the Zoom Out button. Default is ``Zoom out``.
+
+ADD CON FIGURE
+
+Layers List
+-----------
+
+A control with the list of layers in the map. This control is enabled by default.
+
+.. figure:: ../img/layerslist.png
+
+   Layers list
+
+The following properties can be configured for this control:
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 20 80
+   :class: non-responsive
+
+   * - Option
+     - Description
+   * - showOpacity
+     - Show opacity slider for each layer.
+   * - showZoomTo
+     - Show Zoom To button, so the user can adjust the extent of the map based on the extent of an individual layer.
+   * - showDownload
+     - Show Download button, so the user can download the layer in GeoJSON format (vector layers only).
+   * - allowReordering
+     - Allows the user to change the rendering order of layers by dragging them.
+   * - showGroupContent
+     - When a group exists, sets whether to show the individual layers.
+   * - tipLabel
+     - The tooltip to show when mouse is hovered over the layers list. Default is Layers.
+
+.. figure:: ../img/configurelayerslist.png
+
+   Layers List configuration
+
+
+Overview Map
+------------
+
+An additional map that shows a larger overview of the extent of the area covered by the app.
+
+.. figure:: ../img/overviewmap.png
+
+   Overview Map
+
+The following properties can be configured for this control:
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 20 80
+   :class: non-responsive
+
+   * - Option
+     - Description
+   * - collapsed
+     - If checked, the overview map will not be shown when the app is launched. Default is checked.
+
+.. figure:: ../img/configureoverview.png
+
+   Overview Map configuration
+
+North Arrow
+-----------
+
+An arrow that indicates the north direction.
+
+.. figure:: ../img/northarrow.png
+
+   North Arrow
+
+There are no configurable properties for this control.
+
+Full Screen
+-----------
+
+A button to toggle the full screen mode.
+
+ADD FIGURE
+
+There are no configurable properties for this control.
 
 Attribution
-**********************
+-----------
 
-OL3 attribution control
+Adds an attribution note on the bottom right of the map.
 
-.. image:: ../img/attribution.png
-	:align: center
+.. figure:: ../img/attribution.png
 
-Full screen
-**********************
+   Attribution
 
-A button to turn on/off the full screen mode.
-
-Layers list
-**********************
-
-A control with the list of layers in the map.
-
-.. image:: ../img/layerslist.png
-	:align: center
-
-The following properties can be configured in its configuration dialog.
-
-
-.. image:: ../img/configurelayerslist.png
-	:align: center
-
-- *tipLabel*: The tooltip to show when mouse is hovered over the layers list.
-- *showOpacity*: Show opacity slider, so the user can modify the opacity of layers.
-- *showZoomTo*: Show zoom to button, so the user can adjust the extent of the map to the extent of a layer.
-- *showDownload*: Show download button, so the user can download the layer in GeoJSON format (only for vector layers).
-- *allowReordering*: Allow the user to change the rendering order of layers.
-- *showGroupContent*: When a group exists, whether or not to show its layers.
-
-Mouse position
-**********************
-
-A control that displays the current coordinates of the mouse as it moves over the map.
-
-.. image:: ../img/mouseposition.png
-	:align: center
-
-The following properties can be configured in its configuration dialog.
-
-.. image:: ../img/configuremouseposition.png
-	:align: center
-
-- *Coordinate format*
-- *Projection*
-- *undefinedHTML*: the text to show when the coordinate under the mouse cursor cannot be computed.
-
-North arrow
-**********************
-
-An arrow that indicates the North direction
-
-.. image:: ../img/northarrow.png
-	:align: center
-
-Home button
-**********************
-
-A button to go back to the initial map extent.
-
-.. image:: ../img/homebutton.png
-	:align: center	
-
-Overview map
-**********************
-
-An additional map that shown an overview of the full extent of the are covered by the app.
-
-.. image:: ../img/overviewmap.png
-	:align: center
-
-The following properties can be configured in its configuration dialog.
-
-.. image:: ../img/configureoverview.png
-	:align: center
-
-- *collapsed*: Whether the overview map is shown when the app is started.
-
-Scale bar
-**********************
-
-A scale bar.
-
-.. image:: ../img/scalebar.png
-	:align: center
-
-
-The following properties can be configured in its configuration dialog.
-
-.. image:: ../img/configurescalebar.png
-	:align: center	
-
-- *minWidth*
-- *units*
-
-Zoom controls
-**********************
-
-Controls to zoom the map in and out.
-
+There are no configurable properties for this control.
 
 Zoom slider
-**********************
+-----------
 
-A slider to control the zoom level.
+Adds a slider bar to control the zoom level.
 
+ADD FIGURE
 
-3D view
-**********************
+There are no configurable properties for this control.
 
-A button to turn on/off the 3D mode.
+3D View
+-------
 
+Adds a button to toggle 3D mode. MORE DETAILS.
 
-About panel
-**********************
+ADD FIGURE
 
-A panel to display text.
+There are no configurable properties for this control.
 
-A button to turn on/off the full screen mode.
+Home Button
+-----------
 
-.. image:: ../img/aboutpanel.png
-	:align: center
+Adds a button to return to the initial map extent.
 
-The following properties can be configured in its configuration dialog.
+.. figure:: ../img/homebutton.png
 
-.. image:: ../img/configureabout.png
-	:align: center	
+   Home button
 
-- *content*: The content of the panel. Accepts HTML-formatted text
-- *isClosable*. Whether the user can close the panel or not
-- *showNavBarLink*: Show a link in the navigation bar to reopen the panel in case it is closed
+There are no configurable properties for this control.
 
-Export as image
-**********************
+Mouse Position
+--------------
 
-Adds an option to export the current map view to an image file.
+Adds a control that displays the current coordinates of the mouse as it moves over the map.
+
+.. figure:: ../img/mouseposition.png
+
+   Mouse Position
+
+The following properties can be configured for this control:
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 20 80
+   :class: non-responsive
+
+   * - Option
+     - Description
+   * - coordinateFormat
+     - NEED MORE INFO. Default is ``ol.coordinate.createStringXY(4)``.
+   * - Projection
+     - The CRS to use when determining the units. Default is ``EPSG:4326``. 
+   * - undefinedHTML
+     - The text to show when the coordinate cannot be computed. Default is ``&nbsp;`` or a blank.
+
+.. figure:: ../img/configuremouseposition.png
+
+   Mouse Position configuration
 
 Geolocation
-**********************
+-----------
 
-A control to enable geolocation and use the current position of the user in the map
+Enable geolocation and uses the current position of the user in the map. MORE DETAILS.
 
-Measure tools
-**********************
+ADD FIGURE
 
-Area and length measure tools to be used in the map.
+There are no configurable properties for this control.
 
-.. image:: ../img/measuretools.png
-	:align: center	
+Measure
+-------
 
+Adds area and length measure tools to the map.
 
-Geocoding
-**********************
+.. figure:: ../img/measuretools.png
 
-Geocoding functionality to locate geographic places by name.
+   Measure Tools
 
-.. image:: ../img/geocoding.png
-	:align: center	
+There are no configurable properties for this tool.
+
+Selection
+---------
+
+Adds the ability to select features on the map. MORE DETAILS
+
+.. figure:: ../img/selectiontools.png
+
+   Selection options in the app
+
+The following properties can be configured for this tool:
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 20 80
+   :class: non-responsive
+
+   * - Option
+     - Description
+   * - Select by point and radius
+     - DETAILS. Default is checked.
+   * - Select by polygon
+     - DETAILS. Default is checked.
+   * - Select by rectangle
+     - DETAILS. Default is checked.
+   * - Select single feature
+     - DETAILS. Default is checked.
+
+ADD CON FIGURE
+
+Attributes Table
+----------------
+
+Add the ability to display a table containing the attributes of the features in a given layer. Features can be selected/deselected clicking on the table rows. Selected features for the layer are shown in a different color.
+
+.. figure:: ../img/attributestable.png
+
+   Attributes Table
+
+There are no configurable properties for this tool.
 
 Chart tool
-**********************
+----------
 
-Tool to create charts based on selected features of a layer.
+Allow for the creation of charts based on selected features of a layer.
 
-The configuration dialog of this tool allow to define the charts to add to the web app:
-
-.. image:: ../img/configurecharttool.png
-	:align: center	
-
-To define a chart, follow these steps:
-
-- Enter the name of the chart. This will be the name displayed in the menu entry used to invoke the chart.
-
-- Select the type of chart in the *Display mode*. This will define how the feature attributes will be used to create the chart. The following options are available:
-
-	- By feature. An element will be added in the chart for each selected feature, and it will display the values of attributes of the feature. The attributes to display are selected in the *Value fields* field. The attribute used to identify each feature in the chart is selected in the *Category field* field.
-
-	- By category. Selected features will be grouped according to a category, and statistics for each category will be displayed. The attributes to compute statistics are selected in the *Value fields* field. The attribute used to group features into categories is selected in the *Category field* field. The statistic function to use is selected in the *Operation for aggregation* field.
-
-	- Count by category. The chart will show the number of features in each category. The attribute used to group features into categories is selected in the *Category field* field.
-
-- Select the remaining attributes depending on the type of chart, as explained above.
-
-- Click on *Add/Modify* to add the chart. It will be added to the list in the right-hand side of the dialog.
-
-Once you have added all the charts that you want to have in your web app, clik *OK* to finish configuring the chart tool.
+ADD FIGURE
 
 
+The following properties can be configured for this tool:
 
-Links
-**********************
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 20 80
+   :class: non-responsive
 
-Links to external sites. They are added to the navigation bar.
+   * - Option
+     - Description
+   * - Chart name
+     - The title of the chart.
+   * - Display mode
+     - Defines how the feature attributes will be used to create the chart. The following options are available:
 
-The configuration dialog allows to define new links. 
+       * **By feature**. An element will be added in the chart for each selected feature, and it will display the values of attributes of the feature. The attributes to display are selected in the *Value fields* field. The attribute used to identify each feature in the chart is selected in the *Category field* field. 
+       * **By category**. Selected features will be grouped according to a category, and statistics for each category will be displayed. The attributes to compute statistics are selected in the *Value fields* field. The attribute used to group features into categories is selected in the *Category field* field. The statistic function to use is selected in the *Operation for aggregation* field.
+       * **Count by category**. The chart will show the number of features in each category. The attribute used to group features into categories is selected in the *Category field* field.
 
-.. image:: ../img/configurelinks.png
-	:align: center	
+   * - Layer
+     - The layer from which to choose features.
+   * - Layer field
+     - MORE INFO
+   * - Category field
+     - MORE INFO
+   * - Add/Modify
+     - After all the other fields have been populated, this button will add the info to the chart, visible in the right side of the dialog.  
+   * - Remove
+     - Will remove given info from the chart.
 
-Each link is defined with a name (which will be shown in the navigation bar) and a URL.
+.. figure:: ../img/configurecharttool.png
 
-Help
-**********************
+   Chart Tool configuration
 
-A link to a help doc explaining the web app tools and controls.
+Geocoding
+---------
+
+Adds geocoding functionality to locate geographic places by name.
+
+.. figure:: ../img/geocoding.png
+
+   Geocoding tool
+
+There are no configurable properties for this tool.
+
+Query
+-----
+
+Adds query tools to perform selections in layers. Queries are expressed using the notation accepted by the `Filtrex <https://github.com/joewalnes/filtrex#expressions>`_ library.
+
+.. figure:: ../img/query.png
+
+   Query tool
+
+There are no configurable properties for this tool.
 
 Bookmarks
-**********************
+---------
 
-Spatial bookmarks. 
+Adds the ability to create and retrieve spatial bookmarks. A spatial bookmark consists of a name, an extent and a description.
 
-The configuration dialog allows to define which bookmarks to use and how to show them in the web app. 
+When this tool is enabled, a :guilabel:`Bookmarks` tab will be created in the app.
+
+ADD FIGURE
+
+The following properties can be configured for this tool:
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 20 80
+   :class: non-responsive
+
+   * - Option
+     - Description
+   * - THING
+     - THING
 
 .. image:: ../img/configurebookmarks.png
-	:align: center	
 
-Bookmarks are selected in the *Bookmarks* tab.
-
-A bookmark is composed of a name, an extent and a description.
+NEED TO FIX THIS DESCRIPTION BELOW
 
 There are two options for defining bookmarks:
 
@@ -249,7 +377,7 @@ There are two options for defining bookmarks:
 - Using a vector layer. A new bookmark will be added for each feature in the layer, using the bounding box of the feature geometry as the bookmark extent. The name and description of each bookmark will be taken from two attributes in the layer.
 
 .. image:: ../img/bookmarksfromlayer.png
-	:align: center	
+  
 
 The *Configuration tab* controls how the bookmarks will be displayed. 
 
@@ -258,20 +386,94 @@ If the *Show as story panel* box is checked, a narrative map will be created, an
 
 Otherwise, bookmarks will be shown as menu entries in the navigation bar, under a *Bookmarks* menu.
 
-Query
-**********************
 
-Query tools to perform selections in layers. 
+About panel
+-----------
 
-.. image:: ../img/query.png
-	:align: center	
+Adds a button which toggles a text panel, usually describing the app.
 
-Queries are expressed using the notation accepted by the `Filtrex <https://github.com/joewalnes/filtrex#expressions>`_ library, which is used for this functionality.
+HOW DIFFERENT FROM HELP?
 
-Selection tools
-**********************
+.. figure:: ../img/aboutpanel.png
 
-Tools to select features in the map.
+   About panel
 
-.. image:: ../img/selectiontools.png
-	:align: center	
+The following properties can be configured for this tool:
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 20 80
+   :class: non-responsive
+
+   * - Option
+     - Description
+   * - content
+     - The content of the panel. Accepts HTML formatted text. Click :guilabel:`Edit` to open a text editor.
+   * - isClosable
+     - When enabled, the user can close the panel.
+   * - showNavBarLink
+     - When enabled, adds a link in the navigation bar to reopen the panel if it is closed.
+
+.. figure:: ../img/configureabout.png
+
+   About panel configuration  
+
+Export as image
+---------------
+
+Adds an option to export the current map view to an image file.
+
+ADD FIGURE
+
+There are no configurable properties for this tool.
+
+Links
+-----
+
+Add links to external sites to the navigation bar. Each link is defined with a name (shown in the navigation bar) and a URL.
+
+
+ADD FIGURE
+
+The following properties can be configured for this tool:
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 20 80
+   :class: non-responsive
+
+   * - Option
+     - Description
+   * - Add link
+     - Adds a new link
+   * - Remove link
+     - Removes a link from the list
+
+.. figure:: ../img/configurelinks.png
+
+   Links configuration
+
+
+Help
+----
+
+Adds a link on the menubar to a help page.
+
+HOW DIFFERENT FROM ABOUT?
+
+ADD FIGURE
+
+The following properties can be configured for this tool:
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 20 80
+   :class: non-responsive
+
+   * - Option
+     - Description
+   * - THING
+     - THING

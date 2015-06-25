@@ -1,7 +1,9 @@
-Web app builder tutorials
-=========================
+.. _tutorials:
 
-The following tutorials will guide you in the process of creating web apps from the Web App Builder interface, describing each step in detail.
+Tutorials
+=========
+
+The following tutorials will guide you through the process of creating web apps from the Web App Builder interface.
 
 .. toctree::
    :maxdepth: 2
