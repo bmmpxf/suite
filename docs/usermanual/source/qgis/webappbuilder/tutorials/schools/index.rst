@@ -12,9 +12,9 @@ Data
 
 :download:`Download the data for this tutorial <data/schools.zip>`.
 
-The Schools layer is based on the original data from the article linked above, converted to a GeoJSON file, with attribute field names translated into English. Some entries were removed to reduce the size of the file.
+The layer contained in this archive is a collection of schools, based on the original data from the article linked above. This was converted to a shapefile, with attribute field names translated into English. Some entries were removed to reduce the size of the file.
 
-Also, only schools in metropolitan France are considered, to simplify handling projections, as the original data had coordinates using several CRSs in the same file.
+Also, only schools in metropolitan France are considered to simplify handling projections, as the original data had coordinates using several CRSs in the same file.
 
 Preparing the application in QGIS
 ---------------------------------
@@ -25,11 +25,11 @@ The first step in building a web app using the Web App Builder is to set up our 
 
    .. figure:: img/qgisproject.png
 
-      Basic QGIS project
+      Schools QGIS project
 
    The project contains one layer with a rather basic styling. We don't need to add more complex styling, as our web app is more about the data analysis than the map itself, so we will leave it as is. 
 
-#. You will notice that the view is not centered on the extent of the data. Center it or zoom into any place you want to use as your initial extent. When the web app is loaded, it will be focused on that area.
+#. If you'd like, zoom into any place you would like to use as your initial extent. When the web app is loaded, it will be focused on that area.
 
 Configuring the application
 ---------------------------
@@ -44,21 +44,27 @@ Start the Web App Builder by selecting :menuselection:`Plugins --> Boundless -->
 
    #. Select the :guilabel:`basic` theme.
 
-   NEED FIGURE
+      .. figure:: img/descriptiontab.png
 
-#. In the :guilabel:`Base layer` tab, select the :guilabel:`MapQuest aerial` layer as the base layer to use.
+         Description tab
 
-   NEED FIGURE
+#. In the :guilabel:`Base layers` tab, select the :guilabel:`MapQuest aerial` layer as the base layer to use. Leave all others unselected.
+
+   .. figure:: img/baselayerstab.png
+
+      Base layers tab
 
 #. In the :guilabel:`Layers` tab, fill out the form with the following:
 
    #. We only have one layer, so make sure that the :guilabel:`Schools` layer is checked.
 
-   #. Click on the :guilabel:`Edit` link to edit the content of the popup for the layer. You will see the following dialog:
+   #. Click on the :guilabel:`Edit` link to edit the content of the popup for the layer.
 
-      NEED FIGURE
+   #. Enter :kbd:`[NAME]` in the text box to display the name in the popup when the feature is clicked on the map.
 
-   #. Enter :kbd:`[name]` in the text box to display the name in the popup when the feature is clicked on the map.
+      .. figure:: img/popupeditor.png
+
+         Popup editor
 
    #. Click :guilabel:`OK` to close the dialog.
 
@@ -66,9 +72,11 @@ Start the Web App Builder by selecting :menuselection:`Plugins --> Boundless -->
 
    #. Check the :guilabel:`Cluster points` box. Since the number of features is large in the schools layers, clustering will ensure that the web app has good performance when rendering at a large scale. The default clustering distance is fine, so there is no need to modify it.
 
-   NEED FIGURE
+   .. figure:: img/layerstab.png
 
-#. In the :guilabel:`Widgets` tab, fill out the form with the following:
+      Layers tab
+
+#. In the :guilabel:`Widgets` tab:
 
    #. For our web app, we will leave the default three controls activated (Scale Bar, Zoom, Layers) and add the following:
 
@@ -78,15 +86,21 @@ Start the Web App Builder by selecting :menuselection:`Plugins --> Boundless -->
       * Chart tool
       * About panel
 
+   .. figure:: img/widgetstab.png
+
+      Widgets tab
+
    #. Right-click :guilabel:`Chart tool` and select :guilabel:`Configure`.
 
-   #. Here's where we define how to produce the charts when the user makes a selection in the layer. We want to count the number of schools with the same name, so we should select :guilabel:`Count by category` in the :guilabel:`Display mode` list.
+   #. Here's where we define how to produce the charts when the user makes a selection in the layer. We want to count the number of schools with the same name, so in the :guilabel:`Display mode` list, select :guilabel:`Count by category`.
 
-   #. Categories are defined by school names, so the :guilabel:`Name` field has to be selected in the :guilabel:`Category field` list.
+   #. Categories are defined by school names, so the :guilabel:`NAME` field has to be selected in the :guilabel:`Category field` list.
 
-   #. Enter :kbd:`Count by name` in the :guilabel:`Name` box, and click :guilabel:`Add/modify` to add it to the list of charts that will be available in the web app.
+   #. Enter :kbd:`Count By Name` in the :guilabel:`Chart Name` box, and click :guilabel:`Add/modify` to add it to the list of charts that will be available in the web app.
 
-      NEED FIGURE
+      .. figure:: img/charttool.png
+
+         Chart tool
 
    #. Click :guilabel:`OK` to finish configuring the Chart tool.
 
@@ -100,24 +114,36 @@ Start the Web App Builder by selecting :menuselection:`Plugins --> Boundless -->
       .. code-block:: html
 
           <h1>Analysis of school names in France</h1>
-          <p>This web app replicates the work described 
-          <a href="http://www.lemonde.fr/les-decodeurs/article/2015/04/18/de-jules-ferry-a-pierre-perret-l-etonnant-palmares-des-noms-d-ecoles-de-colleges-et-de-lycees-en-france_4613091_4355770.html">here</a></p>
-          <p>It allows to analyze the naming of schools in France, find out the most common ones
-          and study their distribution across the country.</p>
+          <p>This web app replicates the work described in 
+          <a href="http://www.lemonde.fr/les-decodeurs/article/2015/04/18/de-jules-ferry-a-pierre-perret-l-etonnant-palmares-des-noms-d-ecoles-de-colleges-et-de-lycees-en-france_4613091_4355770.html">Le Monde</a>.</p>
+          <p>It allows for analyzing the naming of schools in France, findinf out the most common ones
+          and studying their distribution across the country.</p>
           <p>Select points by dragging while pressing the Shift key to define a rectangle.</p>
           <p>You can also use the <i>Query</i> tool to select based on attributes.</p>
 
-      NEED FIGURE
+      .. figure:: img/aboutpaneleditor.png
+
+         About panel editor
 
    #. Click :guilabel:`OK` to close the text dialog.
 
-      NEED FIGURE
+   #. Leave all other parameters as-is, and click :guilabel:`OK` to close the About panel parameters dialog.
 
-   #. Click :guilabel:`OK` to close the About panel parameters dialog.
+      .. figure:: img/aboutpanel.png
+
+         About panel parameters
 
    #. Right-click :guilabel:`Layers` and select :guilabel:`Configure`.
 
-   #. Check the :guilabel:`showDownload` and :guilabel:`shownZoomTo` check boxes. That will give the user the option to fit the extent of the view to the layer extent, and also to download the schools layer as a GeoJSON file.
+   #. Check the :guilabel:`showDownload` check box. That will give the user the option to download the schools layer as a GeoJSON file.
+
+   #. Check the :guilabel:`shownZoomTo` check box. This will give the user the option to fit the extent of the view to the layer extent.
+
+   #. Leave all other parameters as-is, and click :guilabel:`OK` to close the dialog.
+
+      .. figure:: img/layerslist.png
+
+         Layers list parameters
 
 .. note:: Some additional parameters can be configured in the :guilabel:`Settings` tab of the dialog, but for this tutorial, we will use the default values.
 
@@ -126,9 +152,22 @@ Creating the application
 
 #. With the configuration defined, we can now create it by clicking the :guilabel:`Create App` button at the bottom of the Web App Builder dialog.
 
-   NEED FIGURE
+   .. note:: You may also wish to save the configuration by clicking the :guilabel:`Save` icon.
 
-#. Select the directory where you want to store the web app. The app will be created and saved in this directory.
+   .. figure:: img/builderbuttons.png
+
+      Create App
+
+#. Select the directory where you want to store the web app. 
+
+#. The app will be created and saved in this directory. When finished, a dialog will display.
+
+   .. figure:: img/deployed.png
+
+      App successfully deployed
+
+#. Click :guilabel:`Yes` to see the deployed app.
+  
 
 Customizing the application code
 --------------------------------
@@ -137,7 +176,7 @@ The code of the application is now in the selected directory and the web app is 
 
 #. In a text editor, open :file:`resources/tools.js` from the directory where you stored the web app.
 
-#. Scroll down to around line 622, where you will see::
+#. Scroll down to around line 650, where you will see::
 
       for (i = 0; i < sorted.length; i++) {
           columns[0].push(sorted[i][0]);
@@ -157,12 +196,16 @@ The code of the application is now in the selected directory and the web app is 
 
 #. Save and close the file.
 
+#. Refresh the app in the browser.
+
 Final result
 ------------
 
 By this point, you should have a working web app. Launch the app by opening :file:`index.html` file inside the directory where you created your web app.
 
-ADD FIGURE
+.. figure:: img/app.png
+
+   Deployed app
 
 Using the application
 ---------------------
@@ -176,7 +219,7 @@ French departments (*departements*) are usually referred to by a number. Paris f
 
 #. Open the Query tool and enter this in the filter field::
 
-     floor(POSTCODE/1000) = 75
+     floor(POSTCODE/1000) == 75
 
 #. Click :guilabel:`New selection`. The Paris schools will be highlighted. Unlike the unselected schools in the schools layer, selected ones are not clustered.
 
@@ -184,13 +227,13 @@ French departments (*departements*) are usually referred to by a number. Paris f
 
       Schools in Paris
 
-#. Now open the Chart tool and you will see something like this:
+#. Now close the Query tool and open the :guilabel:`Count by Name` chart:
 
-   .. figure:: img/paris2.png
+   .. figure:: img/parischart.png
 
       Schools in Paris, charted
 
-#. To see the attributes associated to each school, close the Chart panel and open the Attributes table:
+#. To see the attributes associated with each school, close the Chart panel and open the Attributes table:
 
    .. figure:: img/attributes.png
 
@@ -211,11 +254,10 @@ Here is a more complex example. Let's select all public schools in the Ile-de-Fr
 
       Schools in Ile-de-France
 
-
 Selection/filtering by name
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can also show only the location of schools with a given name using a trick.
+You can also show *only* the location of schools with a given name using a trick.
 
 The selected features are in a separate layer which is not shown in the Layers list. That means that if you turn off visibility for the schools layers the layer with selected elements will still be in the map.
 
@@ -227,4 +269,4 @@ The selected features are in a separate layer which is not shown in the Layers l
 
    .. figure:: img/julesferry.png
 
-      Jules Ferry
+      Schools named "Jules Ferry"
