@@ -1,5 +1,9 @@
+.. _qgis.webappbuilder.usage:
+
 Usage
 =====
+
+The page will detail how to use the Web App Builder. For more information, please see the :ref:`qgis.webappbuilder.tutorials`.
 
 The Web App Builder is started from the :menuselection:`Plugins --> Boundless --> Web App Builder` menu.
 
@@ -38,37 +42,16 @@ Click a category in the list in the upper part of the dialog, and its correspond
 
 .. note:: These changes will be saved only for the current project. Subsequent web apps will default to the original CSS.
 
-Base layers
+QGIS Layers
 -----------
-
-This tab sets the base layer(s) for your application.
-
-You can select or deselect base layers by clicking the base layer buttons. 
-
-.. figure:: img/baselayers.png
-
-   Base layers tab
-
-Base layers are divided in two groups: Layers and Overlays. Layers contain the usual base data (such as roads and topography). Overlays are additional layers that would server as additional information, all based on available web services, rendered on top of Layers.
-
-.. note:: If you do not want a base layer, you can leave all of them unselected.
-
-Both Layers and Overlays will be added to a group named "Base layers" in the app, which by default is set as the bottom layer.
-
-.. figure:: img/baselayersselector.png
-
-   Base layer selector in a web app
-
-Layers
-------
 
 This tab is where you can select the layers from your existing QGIS project that you would like to add to your web app.
 
-.. figure:: img/layers.png
+.. figure:: img/qgislayers.png
 
-   Layers tab
+   QGIS Layers tab
 
-Every layer in every group in the QGIS project will be listed in this tab. For each layer, there are several options, depending on the type of layer.
+Every layer in every group in the QGIS project will be listed in this tab. For each layer, there are several options depending on the type of layer.
 
 * A check box with the name of the layer controls whether the layer will be added to the app or not.
 * Another check box controls whether the layer will be visible when the app is loaded.
@@ -80,7 +63,7 @@ Vector layer
 
 For each vector layer, the following options are available:
 
-* *Info popup content*. Using this option, you can specify the  content of the popup for features in the layer. Click on the *Edit* link to open the popup editor
+* :guilabel:`Info popup content`. Using this option, you can specify the content of the popup for features in the layer. Click the :guilabel:`Edit` link to open the popup editor.
 
   .. figure:: img/popupeditor.png
 
@@ -88,39 +71,39 @@ For each vector layer, the following options are available:
 
   Type the expression to use. For adding the value of a given attribute of the future, enter the attribute name between brackets. Formatting is supported, since the content of the field is assumed to be HTML code and will be treated as such. Images can also be included this way.
 
-* *Connect to this layer using*. Determines how to create the data source that will be used by the app. It has the following options.
+* :guilabel:`Connect to this layer using`: Determines how to create the data source that will be used by the app. It has the following options:
 
-  * GeoServer -> WFS: The data will be published to GeoServer and then the app will connect to it as a WFS service. Styling will be done client side by the app itself.
+  * :guilabel:`GeoServer -> WFS`: The data will be published to GeoServer and then the app will connect to it as a WFS service. Styling will be done client side by the app itself.
 
-  * GeoServer -> WMS: The data will be published to GeoServer and then the app will connect to it as a WMS service. Styling will be done server side by GeoServer.
+  * :guilabel:`GeoServer -> WMS`: The data will be published to GeoServer and then the app will connect to it as a WMS service. Styling will be done server side by GeoServer.
 
-  * GeoServer -> PostGIS -> WFS: The data will be imported into PostGIS and then a store will be created in GeoServer to consume that data from the PostGIS database. The app will connect to it as a WFS service. Styling will be done client side by the app itself.
+  * :guilabel:`GeoServer -> PostGIS -> WFS`: The data will be imported into PostGIS and then a store will be created in GeoServer to consume that data from the PostGIS database. The app will connect to it as a WFS service. Styling will be done client side by the app itself.
 
-  * GeoServer -> PostGIS -> WMS: The data will be imported into PostGIS and then a store will be created in GeoServer to consume that data from the PostGIS database. The app will connect to it as a WMS service. Styling will be done server side by GeoServer.
+  * :guilabel:`GeoServer -> PostGIS -> WMS`: The data will be imported into PostGIS and then a store will be created in GeoServer to consume that data from the PostGIS database. The app will connect to it as a WMS service. Styling will be done server side by GeoServer.
 
-  * Use file directly. PostGIS and GeoServer will not be used. The layer will be exported to a GeoJSON file and the app will use it directly. The file will be saved in the output folder in which the app itself will be created.
+  * :guilabel:`Use file directly`: PostGIS and GeoServer will not be used. The layer will be exported to a GeoJSON file and the app will use it directly. The file will be saved in the output folder in which the app itself will be created.
 
-* *Allow selection on this layer*. If this check box is selected, the user will be able to select the features in this layer using any of the available selection tools (if added to the web app in the *Widgets* section). If you want to create charts based on the features of a given layer, you should allow selection on it.
+* :guilabel:`Allow selection on this layer`. If this check box is selected, the user will be able to select the features in this layer using any of the available selection tools (if added as a control). If you want to create charts based on the features of a given layer, you should allow selection on it.
 
-* Cluster points. Check this option to have your point features clustered. Only available with point geometries.
+* :guilabel:`Cluster points`. Check this option to have your point features clustered. Only available with point geometries.
 
-* Cluster distance. Specify the distance to use for clustering. Only available with point geometries.
+* :guilabel:`Cluster distance`. Specify the distance to use for clustering. Only available with point geometries.
 
 Raster layers
 ~~~~~~~~~~~~~
 
 For each raster layer, the following options are available:
 
-* *Connect to this layer using*. Determines how to create the data source that will be used by the app. It has the following options.
+* :guilabel:`Connect to this layer using`. Determines how to create the data source that will be used by the app. It has the following options.
 
-  * GeoServer -> WMS: The layer will be published to GeoServer and then the app will connect to it as a WMS service. Styling will be done server side by GeoServer.
+  * :guilabel:`GeoServer -> WMS`: The layer will be published to GeoServer and then the app will connect to it as a WMS service. Styling will be done server side by GeoServer.
 
-  * Use file directly. PostGIS and GeoServer will not be used. The layer will be exported to an image file and the app will use it directly. The file will be saved in the output folder in which the app itself will be created.
+  * :guilabel:`Use file directly`: PostGIS and GeoServer will not be used. The layer will be exported to an image file and the app will use it directly. The file will be saved in the output folder in which the app itself will be created.
 
 WMS/WFS layers
 ~~~~~~~~~~~~~~
 
-For WFS and WMS, you will find most of the same options for vector and raster layers, except for the *Connect to this layer using* option. The original service will be used, so no data will be published and the web app will connect to the same service that your QGIS layer is connected to.
+For WFS and WMS, you will find most of the same options for vector and raster layers, except for the *Connect to this layer using* option, as the original service will always be used.
 
 Handling projections
 ~~~~~~~~~~~~~~~~~~~~
@@ -129,38 +112,53 @@ All layers will be automatically reprojected into the projection of the map to b
 
 Remote services such as WMS or WFS are an exception to this, as they must use the projection used in the web app. If a layer that is based on a remote service is added to the web map and uses a CRS other than the one specified, a warning will be shown and the application will not be created.
 
-Widgets
--------
+Other layers
+------------
 
-The Widgets tab allows you to select extra elements that you would like to add to your web app.
+This tab allows you to add other layers to your application. You can select or deselect these layers by clicking the buttons. 
 
-.. figure:: img/widgets.png
+.. figure:: img/otherlayers.png
 
-   Widgets tab
+   Other layers tab with "Open topo map" selected
 
-Widgets are divided in two groups:
+You can select from a list of **Base Layers**, which will be displayed below your layers and **Overlays**, which can be shown along side of your layers.
 
-* **Controls**: OpenLayers controls that act on the map and appear in it. They have the same appearance, regardless of the selected theme.
-* **Tools**: Other elements that might or might not be related to the map and its data. Their place in the app and their appearance is controled by the theme.
+Base Layers contain the data such as roads and topography, while Overlays are additional layers that would serve as additional information (such as place labels), all based on available web services.
 
-Some of this elements can be configured, by right-clicking their corresponding button and selecting the :guilabel:`Configure` option in the context menu.
+.. note:: Selecting Base Layers or Overlays is entirely optional.
 
-.. figure:: img/widgetcontext.png
+Base Layers will be added to a group named "Base layers" in the app, which by default is set as the bottom layer.
 
-   Configure widget
+.. figure:: img/baselayersselector.png
 
-You can find a detailed description of all available controls and tools in the :ref:`controls` page.
+   Base layers in a web app
 
-Data deploy
------------
 
-The Deploy tab is used to specify where your data will be stored. It has two groups: *PostGIS* and *GeoServer*. They are used only if your data configuration uses PostGIS or GeoServer (as explained in the *Layers* section).
+Controls
+--------
+
+The Controls tab allows you to select extra elements that you would like to add to your web app. These can be OpenLayers controls that act on the map and appear in it, or other elements that may or may not be directly related to the map data. Their place in the app and their appearance is controlled by the theme.
+
+.. figure:: img/controls.png
+
+   Controls tab
+
+Some controls can be configured. This is done by right-clicking their corresponding button and selecting the :guilabel:`Configure` option.
+
+.. figure:: img/controlcontext.png
+
+   Configuring a control
+
+You can find a detailed description of all available controls on the :ref:`controls` page.
+
+Deploy
+------
+
+The Deploy tab is used to specify where your data will be stored. It has two groups: :guilabel:`PostGIS` and :guilabel:`GeoServer`, and contains connection information on how to store data to each. They are used only if your data configuration uses PostGIS or GeoServer (as explained in the *Layers* section).
 
 .. figure:: img/deploy.png
 
    Deploy tab
-
-MORE DETAILS
 
 Settings
 --------
@@ -179,24 +177,26 @@ The Settings tab shows additional configuration for the application:
 
    * - Setting
      - Description
+   * - App view CRS
+     - The CRS of the finished map. Default is ``EPSG:3857`` (Web Mercator)
    * - Extent
-     - The extent of the map. There are two options: Canvas extent, which is the current state of the QGIS canvas, or Fit to Layers extent, which will calculate the extent based on the union of all the layers in the project.
+     - The extent of the map. There are two options: :guilabel:`Canvas extent`, which is the current state of the QGIS canvas, or :guilabel:`Fit to Layers extent`, which will calculate the extent based on the union of all the layers in the project.
    * - Highlight features on hover
-     - When selected, SOMETHING WILL HAPPEN.
+     - When selected, features will glow when the mouse rolls over them.
    * - Max zoom level
-     - Maximum zoom level available in the web app. HOW DEFINED!?
+     - Maximum zoom level available in the web app, as related to the CRS.
    * - Min zoom level
-     - Minimum zoom level available in the web app. HOW DEFINED!?
+     - Minimum zoom level available in the web app, as related to the CRS.
    * - Precision for GeoJSON export
-     - How many decimal places to used when exporting features using GeoJSON. Higher numbers increase accuracy but also data size. Default is 2.
+     - Number of decimal places to use when exporting features using GeoJSON. Higher numbers increase accuracy but also data size. Default is 2.
    * - Restrict to extent
      - Do not allow the map to be panned outside of the extent.
    * - Show popups on hover
-     - MORE INFO
+     - When selected, a feature's popup will be shown when the mouse rolls over the feature. Otherwise the feature will need to be clicked for the popup to display.
    * - Style for highlighted features
-     - Allows you to customize the way that features will look when highlighted. Clicking :guilabel:`Edit` will bring up a box with a CSS style, which can be customized.
+     - Allows customizing the way that features will look when highlighted. Clicking :guilabel:`Edit` will bring up a box with a CSS style, which can be customized.
    * - Style for selected features
-     - Allows you to customize the way that features will look when selected. Clicking :guilabel:`Edit` will bring up a box with a CSS style, which can be customized.
+     - Allows customizing the way that features will look when selected. Clicking :guilabel:`Edit` will bring up a box with a CSS style, which can be customized.
    * - Use layer scale dependent visibility
      - If defined in the QGIS rendering properties, layers will only be visible in the map when they are within the defined scale range.
    * - Zoom level when zooming to point feature
