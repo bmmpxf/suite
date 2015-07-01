@@ -10,7 +10,7 @@ Scale bar
 
 A scale bar to be placed on the bottom left of the map window. This control is enabled by default.
 
-.. figure:: ../img/scalebar.png
+.. figure:: img/scalebar.png
 
    Scale bar on the map
 
@@ -29,7 +29,7 @@ The following properties can be configured for this control:
    * - units
      - The units to be used in the scale bar. Options are metric, degrees, imperial, nautical, and us. Default is metric.
 
-.. figure:: ../img/configurescalebar.png
+.. figure:: img/scalebarconfigure.png
 
    Scale bar configuration
 
@@ -71,7 +71,7 @@ Layers List
 
 A control with the list of layers in the map. This control is enabled by default.
 
-.. figure:: ../img/layerslist.png
+.. figure:: img/layerslist.png
 
    Layers list
 
@@ -98,7 +98,7 @@ The following properties can be configured for this control:
    * - tipLabel
      - The tooltip to show when mouse is hovered over the layers list. Default is Layers.
 
-.. figure:: ../img/configurelayerslist.png
+.. figure:: img/configurelayerslist.png
 
    Layers List configuration
 
@@ -108,7 +108,7 @@ Overview Map
 
 An additional map that shows a larger overview of the extent of the area covered by the app.
 
-.. figure:: ../img/overviewmap.png
+.. figure:: img/overviewmap.png
 
    Overview Map
 
@@ -125,7 +125,7 @@ The following properties can be configured for this control:
    * - collapsed
      - If checked, the overview map will not be shown when the app is launched. Default is checked.
 
-.. figure:: ../img/configureoverview.png
+.. figure:: img/configureoverview.png
 
    Overview Map configuration
 
@@ -134,7 +134,7 @@ North Arrow
 
 An arrow that indicates the north direction.
 
-.. figure:: ../img/northarrow.png
+.. figure:: img/northarrow.png
 
    North Arrow
 
@@ -154,7 +154,7 @@ Attribution
 
 Adds an attribution note on the bottom right of the map.
 
-.. figure:: ../img/attribution.png
+.. figure:: img/attribution.png
 
    Attribution
 
@@ -183,7 +183,7 @@ Home Button
 
 Adds a button to return to the initial map extent.
 
-.. figure:: ../img/homebutton.png
+.. figure:: img/homebutton.png
 
    Home button
 
@@ -194,7 +194,7 @@ Mouse Position
 
 Adds a control that displays the current coordinates of the mouse as it moves over the map.
 
-.. figure:: ../img/mouseposition.png
+.. figure:: img/mouseposition.png
 
    Mouse Position
 
@@ -215,7 +215,7 @@ The following properties can be configured for this control:
    * - undefinedHTML
      - The text to show when the coordinate cannot be computed. Default is ``&nbsp;`` or a blank.
 
-.. figure:: ../img/configuremouseposition.png
+.. figure:: img/configuremouseposition.png
 
    Mouse Position configuration
 
@@ -233,7 +233,7 @@ Measure
 
 Adds area and length measure tools to the map.
 
-.. figure:: ../img/measuretools.png
+.. figure:: img/measuretools.png
 
    Measure Tools
 
@@ -244,7 +244,7 @@ Selection
 
 Adds the ability to select features on the map. MORE DETAILS
 
-.. figure:: ../img/selectiontools.png
+.. figure:: img/selectiontools.png
 
    Selection options in the app
 
@@ -274,7 +274,7 @@ Attributes Table
 
 Add the ability to display a table containing the attributes of the features in a given layer. Features can be selected/deselected clicking on the table rows. Selected features for the layer are shown in a different color.
 
-.. figure:: ../img/attributestable.png
+.. figure:: img/attributestable.png
 
    Attributes Table
 
@@ -318,7 +318,7 @@ The following properties can be configured for this tool:
    * - Remove
      - Will remove given info from the chart.
 
-.. figure:: ../img/configurecharttool.png
+.. figure:: img/configurecharttool.png
 
    Chart Tool configuration
 
@@ -327,7 +327,7 @@ Geocoding
 
 Adds geocoding functionality to locate geographic places by name.
 
-.. figure:: ../img/geocoding.png
+.. figure:: img/geocoding.png
 
    Geocoding tool
 
@@ -338,7 +338,7 @@ Query
 
 Adds query tools to perform selections in layers. Queries are expressed using the notation accepted by the `Filtrex <https://github.com/joewalnes/filtrex#expressions>`_ library.
 
-.. figure:: ../img/query.png
+.. figure:: img/query.png
 
    Query tool
 
@@ -366,7 +366,7 @@ The following properties can be configured for this tool:
    * - THING
      - THING
 
-.. image:: ../img/configurebookmarks.png
+.. image:: img/configurebookmarks.png
 
 NEED TO FIX THIS DESCRIPTION BELOW
 
@@ -376,8 +376,7 @@ There are two options for defining bookmarks:
 
 - Using a vector layer. A new bookmark will be added for each feature in the layer, using the bounding box of the feature geometry as the bookmark extent. The name and description of each bookmark will be taken from two attributes in the layer.
 
-.. image:: ../img/bookmarksfromlayer.png
-  
+.. image:: img/bookmarksfromlayer.png
 
 The *Configuration tab* controls how the bookmarks will be displayed. 
 
@@ -394,7 +393,7 @@ Adds a button which toggles a text panel, usually describing the app.
 
 HOW DIFFERENT FROM HELP?
 
-.. figure:: ../img/aboutpanel.png
+.. figure:: img/aboutpanel.png
 
    About panel
 
@@ -415,7 +414,7 @@ The following properties can be configured for this tool:
    * - showNavBarLink
      - When enabled, adds a link in the navigation bar to reopen the panel if it is closed.
 
-.. figure:: ../img/configureabout.png
+.. figure:: img/configureabout.png
 
    About panel configuration  
 
@@ -451,7 +450,7 @@ The following properties can be configured for this tool:
    * - Remove link
      - Removes a link from the list
 
-.. figure:: ../img/configurelinks.png
+.. figure:: img/configurelinks.png
 
    Links configuration
 
