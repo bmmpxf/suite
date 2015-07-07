@@ -139,6 +139,8 @@ Controls
 
 The Controls tab allows you to select extra elements that you would like to add to your web app. These can be OpenLayers controls that act on the map and appear in it, or other elements that may or may not be directly related to the map data. Their place in the app and their appearance is controlled by the theme.
 
+Controls are activated by clicking their button.
+
 .. figure:: img/controls.png
 
    Controls tab
@@ -149,7 +151,7 @@ Some controls can be configured. This is done by right-clicking their correspond
 
    Configuring a control
 
-You can find a detailed description of all available controls on the :ref:`controls` page.
+You can find a detailed description of all available controls on the :ref:`qgis.webappbuilder.controls` page.
 
 Deploy
 ------
@@ -202,3 +204,31 @@ The Settings tab shows additional configuration for the application:
    * - Zoom level when zooming to point feature
      - If a single feature is selected in the attributes table in the web app, and the :guilabel:`Zoom to selected` button is clicked, the map zoom will be set to this zoom level.
 
+App definition and management buttons
+-------------------------------------
+
+At the bottom of the Web App Builder interface, there are five buttons that allow you to manage your app definitions:
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 20 80
+   :class: non-responsive
+
+   * - Button
+     - Description
+   * - Open
+     - Opens an existing app definition file (``.appdef``)
+   * - Save
+     - Saves the current app definition to a file (``.appdef``)
+   * - Help
+     - Brings up a help dialog
+   * - Create app
+     - Generates the complete app
+   * - Preview
+     - Generates the complete app in a temp directory
+
+.. figure:: img/builderbuttons.png
+
+   App definition and management buttons
+   

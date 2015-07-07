@@ -94,13 +94,9 @@ Start the Web App Builder by selecting :menuselection:`Plugins --> Boundless -->
 Creating the application
 ------------------------
 
+#. Save the application configuration by clicking the :guilabel:`Save` (disk) icon at the bottom of the dialog.
+
 #. With the configuration defined, we can now create it by clicking the :guilabel:`Create App` button at the bottom of the Web App Builder dialog.
-
-   .. note:: You may also wish to save the configuration by clicking the :guilabel:`Save` icon.
-
-   .. figure:: ../schools/img/builderbuttons.png
-
-      Create App
 
 #. Select the directory where you want to store the web app. 
 

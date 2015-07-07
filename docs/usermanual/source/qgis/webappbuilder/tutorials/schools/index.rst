@@ -5,7 +5,7 @@ Mapping French schools
 
 This tutorial shows how to create a web app using a layer with data for schools in France. By allowing the user to select features in that layer and then create graphs and statistics, the distribution of names can be analyzed, which turns this app into an interesting tool to analyze the story of the French education system.
 
-This app was inspired by a similar work published in `an article in La Monde <http://www.lemonde.fr/les-decodeurs/article/2015/04/18/de-jules-ferry-a-pierre-perret-l-etonnant-palmares-des-noms-d-ecoles-de-colleges-et-de-lycees-en-france_4613091_4355770.html>`_
+This app was inspired by a similar work published in `an article in La Monde <http://www.lemonde.fr/les-decodeurs/article/2015/04/18/de-jules-ferry-a-pierre-perret-l-etonnant-palmares-des-noms-d-ecoles-de-colleges-et-de-lycees-en-france_4613091_4355770.html>`_.
 
 Data
 ----
@@ -48,15 +48,9 @@ Start the Web App Builder by selecting :menuselection:`Plugins --> Boundless -->
 
          Description tab
 
-#. In the :guilabel:`Base layers` tab, select the :guilabel:`MapQuest aerial` layer as the base layer to use. Leave all others unselected.
+#. In the :guilabel:`QGIS Layers` tab, fill out the form with the following:
 
-   .. figure:: img/baselayerstab.png
-
-      Base layers tab
-
-#. In the :guilabel:`Layers` tab, fill out the form with the following:
-
-   #. We only have one layer, so make sure that the :guilabel:`Schools` layer is checked.
+   #. We only have one layer, so make sure that the :guilabel:`schools` layer is checked.
 
    #. Click on the :guilabel:`Edit` link to edit the content of the popup for the layer.
 
@@ -72,25 +66,31 @@ Start the Web App Builder by selecting :menuselection:`Plugins --> Boundless -->
 
    #. Check the :guilabel:`Cluster points` box. Since the number of features is large in the schools layers, clustering will ensure that the web app has good performance when rendering at a large scale. The default clustering distance is fine, so there is no need to modify it.
 
-   .. figure:: img/layerstab.png
+   .. figure:: img/qgislayerstab.png
 
       Layers tab
 
-#. In the :guilabel:`Widgets` tab:
+#. In the :guilabel:`Other Layers` tab, select the :guilabel:`MapQuest aerial` layer as the base layer to use. Leave all others unselected.
+
+   .. figure:: img/otherlayerstab.png
+
+      Other Layers tab
+
+#. In the :guilabel:`Controls` tab:
 
    #. For our web app, we will leave the default three controls activated (Scale Bar, Zoom, Layers) and add the following:
 
+      * Selection
       * Attributes table
+      * Charts
       * Query
-      * Selection tools
-      * Chart tool
       * About panel
 
-   .. figure:: img/widgetstab.png
+   .. figure:: img/controlstab.png
 
-      Widgets tab
+      Controls tab
 
-   #. Right-click :guilabel:`Chart tool` and select :guilabel:`Configure`.
+   #. Right-click :guilabel:`Charts` and select :guilabel:`Configure`.
 
    #. Here's where we define how to produce the charts when the user makes a selection in the layer. We want to count the number of schools with the same name, so in the :guilabel:`Display mode` list, select :guilabel:`Count by category`.
 
@@ -107,7 +107,6 @@ Start the Web App Builder by selecting :menuselection:`Plugins --> Boundless -->
    #. Right-click :guilabel:`About panel` and select :guilabel:`Configure`.
 
    #. Click the :guilabel:`Edit` link to open the text editor.
-
 
    #. The content of the panel is defined using HTML. Enter the following in the text editor:
 
@@ -145,18 +144,14 @@ Start the Web App Builder by selecting :menuselection:`Plugins --> Boundless -->
 
          Layers list parameters
 
-.. note:: Some additional parameters can be configured in the :guilabel:`Settings` tab of the dialog, but for this tutorial, we will use the default values.
+.. note:: There is no need to edit any of the parameters in either the :guilabel:`Deploy` or :guilabel:`Settings` tabs.
 
 Creating the application
 ------------------------
 
+#. Save the application configuration by clicking the :guilabel:`Save` (disk) icon at the bottom of the dialog.
+
 #. With the configuration defined, we can now create it by clicking the :guilabel:`Create App` button at the bottom of the Web App Builder dialog.
-
-   .. note:: You may also wish to save the configuration by clicking the :guilabel:`Save` icon.
-
-   .. figure:: img/builderbuttons.png
-
-      Create App
 
 #. Select the directory where you want to store the web app. 
 
@@ -167,7 +162,6 @@ Creating the application
       App successfully deployed
 
 #. Click :guilabel:`Yes` to see the deployed app.
-  
 
 Customizing the application code
 --------------------------------

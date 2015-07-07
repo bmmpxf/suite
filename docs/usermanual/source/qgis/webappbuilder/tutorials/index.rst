@@ -1,4 +1,4 @@
-.. _tutorials:
+.. _qgis.webappbuilder.tutorials:
 
 Tutorials
 =========

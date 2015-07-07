@@ -111,14 +111,10 @@ Start the Web App Builder by selecting :menuselection:`Plugins --> Boundless -->
 Creating the application
 ------------------------
 
-#. Save the application configuration by clicking the :guilabel:`Save` icon.
+#. Save the application configuration by clicking the :guilabel:`Save` (disk) icon at the bottom of the dialog.
 
 #. With the configuration defined, we can now create it by clicking the :guilabel:`Create App` button at the bottom of the Web App Builder dialog.
 
-   .. figure:: ../schools/img/builderbuttons.png
-
-      Create App
-   
 #. Select the directory where you want to store the web app. 
 
 #. The app will be created and saved in this directory. When finished, a dialog will display.
@@ -128,7 +124,6 @@ Creating the application
       App successfully deployed
 
 #. Click :guilabel:`Yes` to see the deployed app.
-
 
 Improving the application
 -------------------------
@@ -183,6 +178,9 @@ As a way to solve this, you can use a different layer for computing the extents 
 
 #. Click :guilabel:`OK` twice, then recreate the web app by clicking the :guilabel:`Create app` button. 
 
-#. Open the app and navigate through the story points. You will see that each point zooms to a more sensible area.
+Final result
+------------
+
+Open the app and navigate through the story points. You will see that each point zooms to a more sensible area.
 
 .. todo:: ADD FIGURE

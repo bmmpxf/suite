@@ -1,9 +1,9 @@
-.. _controls:
+.. _.. _qgis.webappbuilder.controls:
 
-Controls and tools
-==================
+Controls
+========
 
-Here you can find a description of all the controls and tools that can be added to a web app and how to configure them.
+Here you can find a description of all the controls that can be added to a web app and how to configure them.
 
 Scale bar
 ---------
@@ -34,8 +34,8 @@ The following properties can be configured for this control:
    Scale bar configuration
 
 
-Zoom Controls
--------------
+Zoom
+----
 
 Buttons to zoom the map in and out. This control is enabled by default.
 
@@ -131,18 +131,18 @@ The following properties can be configured for this control:
 
    Overview Map configuration
 
-North Arrow
+North arrow
 -----------
 
 An arrow that indicates the north direction.
 
 .. figure:: img/northarrow.png
 
-   North Arrow
+   North arrow
 
 There are no configurable properties for this control.
 
-Full Screen
+Full screen
 -----------
 
 A button to toggle the full screen mode.
@@ -290,8 +290,8 @@ Adds the ability to display a table containing the attributes of the features in
 
 There are no configurable properties for this control.
 
-Chart tool
-----------
+Charts
+------
 
 Allow for the creation of charts based on selected features of a layer.
 
