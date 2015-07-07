@@ -1,110 +1,128 @@
-.. _Mapping_songs_about_Madrid:
+.. _qgis.webappbuilder.tutorials.songs:
 
 Mapping songs about Madrid
-*************************************
+==========================
 
-This exercise demonstrate how to create a web app that allow to explore songs related to the city of MAdrid. For each song, an entry is added to a map, which contains information abut the lyrics and the author. A popup is shown when clicking on each song point, with an embeded video for the song. This app is inspired by a similar work published in `this article <http://www.huffingtonpost.es/2015/05/15/canciones-madrid-mapa_n_7214408.html>`_
+This tutorial shows how to create a web app that explores songs related to the city of Madrid in Spain. For each song, an entry is added to a map, which contains information abut the lyrics and the author. A popup is shown when hovering over each song point, with an embeded video for the song. This app is inspired by a similar work published in `this article in the Huffington Post <http://www.huffingtonpost.es/2015/05/15/canciones-madrid-mapa_n_7214408.html>`_.
 
 Data
-=====
+----
 
-All data needed for this exercise can be found :download:`here <data/songs.zip>`. There is just a points shapefile with songs information, along with an icon that we will use to render song locations in the map.
+:download:`Download the data for this tutorial <data/songs.zip>`.
 
+This archive contains a point shapefile with song information, along with an icon that we will use to render song locations on the map.
 
-Setting up the application in QGIS
-===================================
+Preparing the application in QGIS
+---------------------------------
 
-Before we use the Web App Builder plugin, we have to set up our data layers in QGIS. The data that we put in the web app will be exactly as it is in QGIS, including the styling. 
+First, we have to set up our data layers in QGIS.
 
-ADd the vector layer that you will find in the data zip file to your QGIS project. 
+#. Add the vector layer to a QGIS project. 
 
+   .. figure:: img/defaultlayer.png
 
-.. image:: img/layer.png
-	:align: center
+      Layer with default style
 
-You can improve the default styling by using a SVG marker with a quaver symbol for each point representing a note. In the data that is used for this exercise, you will find an SVG file that you can use. Check the QGIs user manual to learn how to use a custom SVG symbol.
+#. Improve the default styling by replacing the default symbol with the SVG marker included in the data. (:file:`note.svg`). This can be done in the Layer Properties interface (found by right-clicking the layer name and going to :guilabel:`Properties`.)
 
-Defining the web app
-=====================
+   .. figure:: img/style.png
 
-Start the Web App Builder by selecting the *Plugins/Boundless/Web App Builder* menu.
+      Adding styling
 
+   .. figure:: img/styledlayer.png
 
-.. image:: img/description.png
-	:align: center
+      Layer with SVG marker
 
-We have several tabs, each one used to define a particular set of parameters. We will go through all of them and describe their meaning.
+Configuring the application
+---------------------------
 
-Description tab
-----------------
+Start the Web App Builder by selecting :menuselection:`Plugins --> Boundless --> Web App Builder`. This will bring up the interface used to configure our web app. There are several tabs, each one used to define a particular set of parameters. We will go through each of them and describe their meaning.
 
-Enter "Mapping Madrid songs" in the title box. We will not use any icon, so you can leave the logo box empty.
+#. In the :guilabel:`Description` tab, fill out the form with the following:
 
-We will use the full screen theme.
+   #. Enter :kbd:`Mapping Madrid songs` in the title box.
 
-Base layer tab
----------------
+   #. Select the :guilabel:`fullscreen` theme.
 
-.. image:: img/baselayer.png
-	:align: center
+      .. figure:: img/descriptiontab.png
 
-Select the OSM layer as the base layer to use. Since more than one layer can be selected, you will have to unselect the MapQuest layer that is used by default.
+         Description tab
 
-Layers tab
------------
+#. In the :guilabel:`QGIS Layers` tab, fill out the form with the following:
 
-.. image:: img/layers.png
-	:align: center
+   #. Make sure that the :guilabel:`Songs` layer is checked.
 
-This tab is used to configure which layers from your QGIS project are used, and how they are used. We only have one layer and we will use it, so make sure that the *Songs* layer is checked.
+   #. Click the :guilabel:`Edit` link to edit the content of the popup for the layer.
 
-Click on the *Edit...* link to edit the content of the popup for the layer. You will see the following dialog:
+   #. Enter the following in the text box to define the content of the popup::
 
-.. image:: img/popup.png
-	:align: center
+        [Video]
 
+        <p><i>[Lyrics]</i></p>
+        <p>[Song], <b>[Author]</b>
 
-Enter the following in the text box, to define the content of the popup:
+      This popup will display the embeded video as well as lyrics, song, and author information.
 
-::
+      .. figure:: img/popup.png
 
-	[Video]
+         Feature popup
 
-	<p><i>[Lyrics]</i></p>
-	<p>[Song], <b>[Author]</b>
+   #. Click :guilabel:`OK`.
 
+      .. figure:: img/qgislayerstab.png
 
-The popup displayed when a song point is selected will contain the embeded video and the song and author information.
+#. In the :guilabel:`Other Layers` tab, select the :guilabel:`Stamen toner lite` layer.
 
+   .. figure:: img/otherlayerstab.png
 
-Widgets
---------
+      Other Layers tab
 
-.. image:: img/widgets.png
-	:align: center
+#. In the :guilabel:`Controls` tab, disable (unselect) all controls. 
 
-This tab is used to select which map controls and tools you want in your web app. We do not want any controls, so you should disable the three default ones.
+   .. figure:: img/controlstab.png
 
-Settings
-----------
+      Controls tab
 
-.. image:: img/settings.png
-	:align: center
+#. In the :guilabel:`Settings` tab, check the :guilabel:`Show popups on hover` parameter, so popups are shown when passing the mouse over the points without having to click on them.
 
-Some additional parameters can be configured in the last tab of the dialog.
+   .. figure:: img/settingstab.png
 
-For our web app, we will use all the default values except for the *Show popups on hover* parameter. Check the corresponding box, so popups are shown when passing the mouse over the points, without having to click on them.
+      Settings tab
+
+.. note:: There is no need to edit any of the parameters in the :guilabel:`Deploy` tab.
 
 Creating the application
-=========================
+------------------------
 
-With the web app already defined, we can now create it by clicking on the *Create App* button. A folder selector dialog will be shown. Select the folder where you want to store the web app. The app will be created and saved to the selected folder.
+#. With the configuration defined, we can now create it by clicking the :guilabel:`Create App` button at the bottom of the Web App Builder dialog.
 
+   .. note:: You may also wish to save the configuration by clicking the :guilabel:`Save` icon.
 
-The final result
-=========================
+   .. figure:: ../schools/img/builderbuttons.png
 
-If you have done all steps above, you should have a working web app in your machine, in the folder that you selected. Open it by opening the *index.html* file that you will find there.
+      Create App
 
-.. image:: img/result.png
-	:align: center
+#. Select the directory where you want to store the web app. 
+
+#. The app will be created and saved in this directory. When finished, a dialog will display.
+
+   .. figure:: ../schools/img/deployed.png
+
+      App successfully deployed
+
+#. Click :guilabel:`Yes` to see the deployed app.
+
+Final result
+------------
+
+By this point, you should have a working web app. Launch the app by opening :file:`index.html` file inside the directory where you created your web app.
+
+.. figure:: img/app.png
+
+   Deployed app
+
+To see the application in action, hover over any of the points on the map.
+
+.. figure:: img/apphover.png
+
+   Hovering over a point

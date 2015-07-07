@@ -1,4 +1,4 @@
-.. _tutorials.schools:
+.. _qgis.webappbuilder.tutorials.schools:
 
 Mapping French schools
 ======================
@@ -34,7 +34,7 @@ The first step in building a web app using the Web App Builder is to set up our 
 Configuring the application
 ---------------------------
 
-Start the Web App Builder by selecting :menuselection:`Plugins --> Boundless --> Web App Builder`. This will bring up the interface we use to configure our web app. There are several tabs, each one used to define a particular set of parameters. We will go through each of them and describe their meaning.
+Start the Web App Builder by selecting :menuselection:`Plugins --> Boundless --> Web App Builder`. This will bring up the interface used to configure our web app. There are several tabs, each one used to define a particular set of parameters. We will go through each of them and describe their meaning.
 
 #. In the :guilabel:`Description` tab, fill out the form with the following:
 
