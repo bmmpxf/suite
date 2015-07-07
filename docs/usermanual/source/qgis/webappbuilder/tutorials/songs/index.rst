@@ -115,7 +115,7 @@ Creating the application
 Final result
 ------------
 
-By this point, you should have a working web app. Launch the app by opening :file:`index.html` file inside the directory where you created your web app.
+If not already open, launch the app by opening :file:`index.html` file inside the directory where you created your web app.
 
 .. figure:: img/app.png
 

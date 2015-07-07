@@ -1,148 +1,188 @@
-.. _Mapping_Paris_bakeries:
+.. _qgis.webappbuilder.tutorials.bakeries:
 
 Mapping Paris bakeries
-**********************************
+======================
 
-This example shows how to create a different type of web app using the Web App Builder. In this case, we will create a wep app to explore a selection of the best bakeries in Paris, using a storytelling approach.
+This example shows how to create a web app using a storytelling approach. In this case, we will create a wep app to explore a selection of the best bakeries in Paris.
 
 Data
-=====
+----
 
-All data needed for this exercise can be found :download:`here <data/bakeries.zip>`. 
+:download:`Download the data for this tutorial <data/bakeries.zip>`.
 
-Setting up the application in QGIS
-===================================
+This archive contains a single point shapefile, consisting of the locations of bakeries in Paris.
 
-Before we use the Web App Builder plugin, we have to set up our data layers in QGIS. The data that we put in the web app will be exactly as it is in QGIS, including the styling. 
+Preparing the application in QGIS
+---------------------------------
 
-Open the QGIS project included in the exercise data.  There is only one layer and it already has a style that we can use, so there is no need to modify it.
+First, we have to set up our data layers in QGIS.
 
-If you open the attributes table, you will see that the layer has several fields with information about each bakery, and a field named *Text* with a HTML-formatted text which includes that information. We will be using this field for showing the description of each bakery. 
+Add the data to a new QGIS project. If you open the attributes table for this layer, you will see that the layer has several fields with information about each bakery, and a field named :guilabel:`Text` with a HTML-formatted text which includes that information. We will be using this field for showing the description of each bakery. 
 
+.. figure:: img/attributetable.png
 
-Defining the web app
-=====================
+   Attribute table
 
-Start the Web App Builder by selecting the *Plugins/Boundless/Web App Builder* menu.
+Configuring the application
+---------------------------
 
-The following sections describe how to set up the content of each tab in the Web App Builder window
+Start the Web App Builder by selecting :menuselection:`Plugins --> Boundless --> Web App Builder`. This will bring up the interface used to configure our web app. There are several tabs, each one used to define a particular set of parameters. We will go through each of them and describe their meaning.
 
-Description tab
-----------------
+#. In the :guilabel:`Description` tab, fill out the form with the following:
 
-Enter *Paris bakeries* in the title box. Do not enter anything in the *Logo* box.
+   #. Enter :kbd:`Paris bakeries` in the title box.
 
-Select the *full screen* theme.
+   #. Select the :guilabel:`fullscreen` theme.
 
-.. image:: img/description.png
-	:align: center
+   .. figure:: img/descriptiontab.png
 
-Base layer tab
----------------
+      Description tab
 
-We will use the OSM base map, since we will need to show the map at a close scale and that layer provides enough detail for that.
+#. In the :guilabel:`QGIS Layers` tab, fill out the form with the following:
 
-.. image:: img/baselayer.png
-	:align: center
+   #. Make sure the :guilabel:`bakeries` layer is checked.
 
+   #. Uncheck the :guilabel:`Allow selection on this layer` check box, since we do not want to let the user interact with the layer.
 
-Layers tab
------------
+   .. figure:: img/qgislayerstab.png
 
-This tab is used to configure which layers from your QGIS project are used, and how they are used. 
+      QGIS Layers tab
 
-Check the bakeries layer and uncheck the *Allow selection* check box, since we do not want to let the user interact with the layer.
+#. In the :guilabel:`Other Layers` tab, select the :guilabel:`OSM Mapnik` layer.
 
-Leave the rest of parameters with their default values.
+   .. figure:: img/otherlayerstab.png
 
-.. image:: img/layers.png
-	:align: center
+      Other Layers tab
 
-Widgets
---------
+#. In the :guilabel:`Controls` tab:
 
+   #. disable all selected controls and select the :guilabel:`Bookmarks` tool. 
 
-This tab is used to select which map controls and tools you want in your web app. For our one, we will only use the *Bookmarks* tool. Unselect the three default ones and select the *Bookmarks* tool.
+   .. figure:: img/controlstab.png
 
-.. image:: img/widgets.png
-	:align: center
+      Controls tab
 
+   #. Right-click the :guilabel:`Bookmarks` tool and select :guilabel:`Configure`. This will be the central part of our web app, since the main storytelling functionality will be based on it.
 
-We need to configure the bookmarks to use. This is the central part of our web app, since the main functionality will be based on it.
+   #. You will see the following dialog:
 
-Right click on the *Bookmarks* button and select the *Configure...* option in the context menu. You will see the following dialog.
+      .. figure:: img/bookmarks.png
 
-.. image:: img/bookmarks.png
-	:align: center
+         Bookmarks dialog
 
-Bookmarks can be taken from the collection of QGIS bookmarks (which you can create drom the QGIS interface) or using a layer. We will use this last option and generate one bookmark for each bakery location.
+   #. Bookmarks can be taken from a collection of QGIS bookmarks or from a layer. In this case, we will take bookmarks from a layer, generating one bookmark for each bakery location. Click the :guilabel:`Add from layer` button.
 
-Click on the the *Add from layer* button. You will see the following dialog.
+   #. In the :guilabel:`Layer` field, select :guilabel:`bakeries`. In the :guilabel:`Name` field, select :guilabel:`Name`. In the :guilabel:`Description` field, selection :guilabel:`Text`. The content of these two fields will be used to create the content of the panel that will describe each of the bookmarks. The name will be shown as a header title, and the description text will be shown below in a normal paragraph.
 
-.. image:: img/bookmarksfromlayer.png
-	:align: center
+      .. figure:: img/bookmarksfromlayer.png
 
-Select the bakeries layer in the *Layer* parameters. Select *Name* in the *Name field* list and *Text* in the *Description field* list. The content of this two field that we have selected will be used to create the content of the panel that will describe each of the bookmarks. The name will be shown as a header title, and the description text will be shown below in a  normal paragraph.
+         Creating bookmarks from layer
 
-Click on *OK* and the bookmarks will be added to the list of defined bookmarks for the web app. 
+   #. Click :guilabel:`OK`. The bookmarks will be added to the list of defined bookmarks for the web app.
 
-If you select any of the bookmarks in the list, you will see its description text in the lower panel.
+      .. figure:: img/bookmarksadded.png
 
-.. image:: img/bookmarks2.png
-	:align: center
+         Bookmarks added
 
-Now move to the *Configuration* tab. We want to display bookmark descriptions in a panel, so check the *Show in story panel* check box. Ther remaining items will become enabled. 
+   #. If you select any of the bookmarks in the list, you will see its description text in the lower panel.
 
-Enter a title and description for the starting slide. These will be used to create the content of the panel when the web app is started, before moving to the first bookmark.
+      .. figure:: img/bookmarksselected.png
 
-Type *Paris Bakeries* in the title box and *Explore the best bakeries of the capital* in the description one (feel free to add more text if you feel creative)
+         Viewing the contents of a bookmark
 
-Change the animation type to *Pan to*.
+   #. Click the :guilabel:`Configuration` tab.
 
-.. image:: img/bookmarksconfiguration.png
-	:align: center
+   #. Check the :guilabel:`Show in story panel` box, as we want to display bookmark descriptions in a panel.
 
-Click on *OK* to close the bookmark editor dialog.
+   #. In the :guilabel:`Intro title` box, type :kbd:`Paris Bakeries`.
 
+   #. In the :guilabel:`Intro description` box, type :kbd:`Explore the best bakeries of the capital of France.`. These will be used to create the content of the panel when the web app is started, before moving to the first bookmark.
 
-Settings
-----------
+   #. Change the :guilabel:`Animation type` to :guilabel:`Pan to`.
+   
+      .. figure:: img/bookmarksconfiguration.png
 
-We will use all the default settings, so there is no need to modify anything in this tab.
+         Bookmarks configuration
 
+   #. Click :guilabel:`OK`.
+
+.. note:: There is no need to edit any of the parameters in either the :guilabel:`Deploy` or :guilabel:`Settings` tabs.
 
 Creating the application
-=========================
+------------------------
 
-With the web app already defined, we can now create it by clicking on the *Create App* button. A folder selector dialog will be shown. Select the folder where you want to store the web app. The app will be created and saved to the selected folder. Open the *index.html* file that you will find in that folder to open the web app that we have just created.
+#. Save the application configuration by clicking the :guilabel:`Save` icon.
+
+#. With the configuration defined, we can now create it by clicking the :guilabel:`Create App` button at the bottom of the Web App Builder dialog.
+
+   .. figure:: ../schools/img/builderbuttons.png
+
+      Create App
+   
+#. Select the directory where you want to store the web app. 
+
+#. The app will be created and saved in this directory. When finished, a dialog will display.
+
+   .. figure:: ../schools/img/deployed.png
+
+      App successfully deployed
+
+#. Click :guilabel:`Yes` to see the deployed app.
 
 
 Improving the application
-==========================
+-------------------------
 
-The application is created but, if you open it and use the story panel to visit the different bookmarks, you will notice that the zoom level is to high. That is because the layer that we used for creating the bookmarks is a point layer, so the extent covered by each bookmark is just the point itself, not a real bounding box. That causes the app to zoom to the maximum zoom level.
+If not already open, launch the app by opening :file:`index.html` file inside the directory where you created your web app.
 
-To solve this, you can use a different layer for computing the extents of the bookmarks.
+.. todo:: ADD FIGURE
 
-Open the Processing toolbox and find the *Fixed distance buffer* algorithm. Double-clik on it to open its parameters dialog.
+The application is now created but when you move through the story points, you will notice that the zoom level effect is set too high. This is because the layer that used for creating the bookmarks is a point layer, so the extent covered by each bookmark is just the point itself, not a real bounding box. That causes the app to zoom to the maximum zoom level.
 
-.. image:: img/bufferdialog.png
-	:align: center
+As a way to solve this, you can use a different layer for computing the extents of the bookmarks. We will generate one here.
 
-Use it to compute a buffer around each bakery point. In the *Distance* field, use 0.005. You should get something like this.
+#. Back in QGIS, close the Web App Builder and open the :guilabel:`Processing toolbox` (:menuselection:`Processing --> Toolbox`).
 
-.. image:: img/bufferresult.png
-	:align: center
+#. Find the :guilabel:`Fixed distance buffer` algorithm (:menuselection:`Geoalgorithms --> Vector --> Geometry operations`) and double-click it to open its parameters dialog.
 
-Now open back the Web Map Builder. Since you have already created a web app based on this same QGIS project, you will see the following message dialog:
+   .. figure:: img/processingtoolboxbuffer.png
 
-.. image:: img/messagedialog.png
-	:align: center
+      Fixed distance buffer process in the Processing toolbox
 
-Select *Yes* to recover the configuration parameters that you used when you generated the web app the first time.
+#. In the :guilabel:`Input layer`, make sure that :guilabel:`bakeries` is selected.
 
-Go to the widgets tab and configure the bookmarks tool. In the bookmark configuration dialog you will see that yoiu have all the bookmarks that you defined the last time. Select on *Remove all* to remove them, and then recreate the bookmarks from a layer, as it was already explained. This time, however, use the layer that you got as result from the buffer operation. It has the same attributes table as the original bakeris layer, so you can select the same fields for the title and description. Close the dialog and your bookmarks will be added to the list of the ones to use for the web app. The extent of each bookmark is now larger, as it will use the buffer polygon to define it, not the point.
+#. In the :guilabel:`distance` field, enter :kbd:`0.005`.
 
-Create the web app again by clicking on the *Create app* button.
+   .. figure:: img/bufferdialog.png
 
+      Fixed distance buffer parameters
 
+#. Click :guilabel:`Run` to compute a buffer around each bakery point. The result will be displayed as a new layer in QGIS.
+
+   .. figure:: img/bufferresult.png
+
+      Buffer result
+
+#. Now reopen the Web App Builder. Since you have already created a web app based on this same QGIS project, you will see the following message dialog:
+
+   .. figure:: img/messagedialog.png
+
+      Recovering the application definition
+
+#. Click :guilabel:`Yes` to recover the configuration parameters that you used when you first generated the web app.
+
+#. Go to the :guilabel:`Controls` tab and configure the Bookmarks tool again.
+
+#. Click :guilabel:`Remove all` to remove all existing bookmarks.
+
+#. Recreate the bookmarks in the same way as before, except this time when creating bookmarks from a layer, use the Buffer layer instead of the bakeries layer. It will have the same attributes table as the original bakeries layer, so you can select the same fields for the Title and Description.
+
+   .. figure:: img/bookmarksfromlayerbuffer.png
+
+      Bookmarks from Buffer layer
+
+#. Click :guilabel:`OK` twice, then recreate the web app by clicking the :guilabel:`Create app` button. 
+
+#. Open the app and navigate through the story points. You will see that each point zooms to a more sensible area.
+
+.. todo:: ADD FIGURE
